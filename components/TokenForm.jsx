@@ -121,6 +121,14 @@ const Forms = ({ type, handleSubmit, routerOptions }) => {
         />
       );
 
+    case "buyback":
+      return (
+        <BuybackControls
+          routerOptions={routerOptions}
+          handleSubmit={handleSubmit}
+        />
+      );
+
     default:
       return <StandardControls handleSubmit={handleSubmit} />;
   }
@@ -264,6 +272,7 @@ const LiquidityControls = ({ handleSubmit, routerOptions }) => {
     </Formik>
   );
 };
+
 const BabyControls = ({ handleSubmit, routerOptions }) => {
   const initialValues = {
     tokenName: "",
@@ -364,6 +373,112 @@ const BabyControls = ({ handleSubmit, routerOptions }) => {
               label={"Marketing wallet"}
               type={"text"}
               name={"marketingWallet"}
+              placeholder={"0 - 100"}
+            />
+          </div>
+
+          <button
+            className="w-40 font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg"
+            type="submit"
+          >
+            create
+          </button>
+        </Form>
+      )}
+    </Formik>
+  );
+};
+
+const BuybackControls = ({ handleSubmit, routerOptions }) => {
+  const initialValues = {
+    tokenName: "",
+    tokenSymbol: "",
+    tokenTotalSupply: "",
+    router: "",
+    rewardToken: "",
+    liquidityFee: "",
+    buybackFee: "",
+    reflectionFee: "",
+    marketingFee: "",
+  };
+
+  const validationSchema = Yup.object({
+    tokenName: Yup.string().required("Token name cannot be empty"),
+    tokenSymbol: Yup.string().required("Required"),
+    tokenTotalSupply: Yup.string().required("Required"),
+    router: Yup.string().required("Required"),
+    rewardToken: Yup.string().required("Required"),
+    liquidityFee: Yup.string().required("Required"),
+    buybackFee: Yup.string().required("Required"),
+    reflectionFee: Yup.string().required("Required"),
+    marketingFee: Yup.string().required("Required"),
+  });
+
+  /////////////////
+  // RETURN =======
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {formik => (
+        <Form className="mt-4 flex flex-col gap-4">
+          <CommonControls />
+
+          {/* Select  */}
+          <FormikControl
+            control={"select"}
+            label={"Router"}
+            name={"router"}
+            options={routerOptions}
+          />
+
+          <div className="flex gap-3">
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Reward token"}
+              type={"text"}
+              name={"rewardToken"}
+              placeholder={"Ex: 1"}
+            />
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Liquidity Fee (%)"}
+              type={"number"}
+              name={"liquidityFee"}
+              placeholder={"Ex: 0 - 100"}
+            />
+          </div>
+
+          <div className="flex gap-3">
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Buyback Fee (%)"}
+              type={"number"}
+              name={"buybackFee"}
+              placeholder={"0 - 100"}
+            />
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Reflection Fee (%)"}
+              type={"number"}
+              name={"reflectionFee"}
+              placeholder={"0 - 100"}
+            />
+          </div>
+
+          <div className="flex gap-3">
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Marketing fee (%)"}
+              type={"number"}
+              name={"marketingFee"}
               placeholder={"0 - 100"}
             />
           </div>
