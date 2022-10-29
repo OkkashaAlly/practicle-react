@@ -17,6 +17,17 @@ const LaunchpadForm = () => {
     },
   ];
 
+  const listingOptions = [
+    {
+      key: "Auto Listing",
+      value: "autoListing",
+    },
+    {
+      key: "Manual Listing",
+      value: "manualListing",
+    },
+  ];
+
   const currencyOptions = [
     {
       key: "BNB",
@@ -40,6 +51,7 @@ const LaunchpadForm = () => {
     tokenAddress: "",
     tokenCurrency: "bnb",
     feeOptions: "5%",
+    listingOptions: "autoListing",
   };
   const validationSchema = Yup.object({
     tokenAddress: Yup.string().required("Required"),
@@ -93,6 +105,14 @@ const LaunchpadForm = () => {
             options={feeOptions}
             dynamicRadio
             dynamicText={" raised only"}
+          />
+          
+          <FormikControl
+            control={"radio"}
+            label={"Listing Options"}
+            name={"listingOptions"}
+            options={listingOptions}
+            
           />
 
           <button
