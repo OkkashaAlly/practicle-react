@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import { RiHome3Line, RiRocketLine, RiShieldKeyholeLine } from "react-icons/ri";
+import {
+  RiHome3Line,
+  RiRocketLine,
+  RiShieldKeyholeLine,
+  RiCheckboxBlankCircleFill,
+} from "react-icons/ri";
 
 const SideBar = () => {
   const navLinks = [
@@ -75,7 +80,11 @@ const SideBar = () => {
   const [mobileMenu, setMobileMenu] = useState(true);
 
   return (
-    <aside className={`min-h-screen ${sidebarOpen ? "w-52" : "w-20"} p-4`}>
+    <aside
+      className={`min-h-screen ${
+        sidebarOpen ? "w-52" : "w-20"
+      } border-r border-neutral-600 p-4`}
+    >
       <div className="">
         {navLinks.map((link, i) => (
           <NavItem
@@ -101,9 +110,9 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
         onClick={_ => setMobileMenu(false)}
         className={`p-2 my-2 cursor-pointer ${
           item.active && "bg-neutral-700"
-        } hover:bg-neutral-700 text-white rounded-lg flex items-center gap-3`}
+        } hover:bg-neutral-700 text-neutral-300 rounded-lg flex items-center gap-3`}
       >
-        <span className="h-8 w-8 p-2 bg-white rounded-full flex items-center justify-center">
+        <span className="h-8 w-8 p-2 bg-rose-100 rounded-full flex items-center justify-center">
           {item.icon()}
         </span>
         <span className={`${!sidebarOpen && "hidden"} capitalize`}>
@@ -116,11 +125,11 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
       <div
         className={`p-2 my-2 cursor-pointer ${
           item.active && "bg-neutral-700"
-        } hover:bg-neutral-700 text-white rounded-lg `}
+        } hover:bg-neutral-700 text-neutral-300 rounded-lg `}
         onClick={_ => setDropdownOpen(!dropdownOpen)}
       >
         <div className="flex items-center gap-3 ">
-          <span className="h-8 w-8 p-2 bg-white rounded-full flex items-center justify-center">
+          <span className="h-8 w-8 p-2 bg-rose-100 rounded-full flex items-center justify-center">
             {item.icon()}
           </span>
           <span className={`${!sidebarOpen && "hidden"} capitalize`}>
@@ -130,15 +139,15 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
       </div>
       <div className={`${!dropdownOpen && "hidden"}  bg-neutral-800 mb-4`}>
         {item.dropdowns.map((drop, i) => (
-          <div
-            key={i}
-            className="capitalize py-2 text-neutral-400 hover:text-neutral-100 ml-6"
-          >
-            <Link href={drop.pathname}>
-              {"> "}
+          <Link href={drop.pathname}>
+              <div
+                key={i}
+                className="capitalize flex items-center py-2 text-neutral-400 hover:text-neutral-100 ml-4"
+              >
+              <RiCheckboxBlankCircleFill className="mr-2 h-2 w-2" />
               {drop.text}
-            </Link>
           </div>
+            </Link>
         ))}
       </div>
     </>
