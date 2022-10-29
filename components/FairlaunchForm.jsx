@@ -6,7 +6,7 @@ import InputNote from "./shared/InputNote";
 // ================================
 // FORMIK CONTAINER COMPONENT =====
 // ================================
-const LaunchpadForm = () => {
+const FairlaunchForm = () => {
   const feeOptions = [
     {
       key: "5%",
@@ -15,17 +15,6 @@ const LaunchpadForm = () => {
     {
       key: "2%",
       value: "2%",
-    },
-  ];
-
-  const listingOptions = [
-    {
-      key: "Auto Listing",
-      value: "autoListing",
-    },
-    {
-      key: "Manual Listing",
-      value: "manualListing",
     },
   ];
 
@@ -52,7 +41,6 @@ const LaunchpadForm = () => {
     tokenAddress: "",
     tokenCurrency: "bnb",
     feeOptions: "5%",
-    listingOptions: "autoListing",
   };
   const validationSchema = Yup.object({
     tokenAddress: Yup.string().required("Required"),
@@ -107,14 +95,6 @@ const LaunchpadForm = () => {
             dynamicRadio
             dynamicText={" raised only"}
           />
-          
-          <FormikControl
-            control={"radio"}
-            label={"Listing Options"}
-            name={"listingOptions"}
-            options={listingOptions}
-            
-          />
 
           <button
             className="w-40 font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg"
@@ -128,7 +108,5 @@ const LaunchpadForm = () => {
   );
 };
 
-
-
 // EXPORT ====================
-export default LaunchpadForm;
+export default FairlaunchForm;

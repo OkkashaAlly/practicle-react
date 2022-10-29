@@ -30,8 +30,20 @@ const SideBar = () => {
           text: "create launchpad",
         },
         {
-          pathname: "/launchpad-create",
-          text: "create launchpad",
+          pathname: "/launchpad/fairlaunch",
+          text: "create Fair lunch",
+        },
+        {
+          pathname: "/launchpad/dutch-auction",
+          text: "create dutch auction",
+        },
+        {
+          pathname: "/launchpad/subscription-pool",
+          text: "create subscription",
+        },
+        {
+          pathname: "/launchpad/token",
+          text: "create token",
         },
       ],
     },
@@ -43,11 +55,11 @@ const SideBar = () => {
       },
       dropdowns: [
         {
-          pathname: "/private",
+          pathname: "/",
           text: "private list",
         },
         {
-          pathname: "/private",
+          pathname: "/",
           text: "private sale",
         },
       ],
@@ -140,14 +152,14 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
       <div className={`${!dropdownOpen && "hidden"}  bg-neutral-800 mb-4`}>
         {item.dropdowns.map((drop, i) => (
           <Link href={drop.pathname}>
-              <div
-                key={i}
-                className="capitalize flex items-center py-2 text-neutral-400 hover:text-neutral-100 ml-4"
-              >
+            <div
+              key={i}
+              className="capitalize flex items-center py-2 text-neutral-400 hover:text-neutral-100 ml-4"
+            >
               <RiCheckboxBlankCircleFill className="mr-2 h-2 w-2" />
               {drop.text}
-          </div>
-            </Link>
+            </div>
+          </Link>
         ))}
       </div>
     </>
