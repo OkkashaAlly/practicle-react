@@ -26,8 +26,8 @@ const SideBar = () => {
       },
       dropdowns: [
         {
-          pathname: "/launchpad-list",
-          text: "launchpad list",
+          pathname: "/launchpad/create",
+          text: "create launchpad",
         },
         {
           pathname: "/launchpad-create",
