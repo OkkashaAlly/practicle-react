@@ -3,7 +3,7 @@ import TextError from "./TextError";
 
 const Input = ({ label, type, name, placeholder }) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-1 flex-col">
       <label htmlFor={name} className={"capitalize mb-1"}>
         {label}:
       </label>

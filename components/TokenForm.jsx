@@ -171,6 +171,10 @@ const LiquidityControls = ({ handleSubmit }) => {
     tokenSymbol: "",
     tokenTotalSupply: "",
     router: "",
+    feeGenerateYield: "",
+    feeGenerateLiquidity: "",
+    charityAddress: "",
+    charityPercent: "",
   };
 
   const validationSchema = Yup.object({
@@ -178,6 +182,8 @@ const LiquidityControls = ({ handleSubmit }) => {
     tokenSymbol: Yup.string().required("Required"),
     tokenTotalSupply: Yup.string().required("Required"),
     router: Yup.string().required("Required"),
+    feeGenerateYield: Yup.string().required("Required"),
+    feeGenerateLiquidity: Yup.string().required("Required"),
   });
 
   /////////////////
@@ -200,6 +206,44 @@ const LiquidityControls = ({ handleSubmit }) => {
             options={routerOptions}
           />
 
+          <div className="flex gap-3">
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Transaction fee to generate yield (%)"}
+              type={"number"}
+              name={"feeGenerateYield"}
+              placeholder={"Ex: 1"}
+            />
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Transaction fee to generate liquidity (%)"}
+              type={"number"}
+              name={"feeGenerateLiquidity"}
+              placeholder={"Ex: 1"}
+            />
+          </div>
+          
+          <div className="flex gap-3">
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Charity/Marketing address"}
+              type={"text"}
+              name={"charityAddress"}
+              placeholder={"Ex: 0x000..."}
+            />
+            {/* Input  */}
+            <FormikControl
+              control={"input"}
+              label={"Charity/Marketing percent (%)"}
+              type={"text"}
+              name={"charityPercent"}
+              placeholder={"0 - 25"}
+            />
+          </div>
+
           <button
             className="w-40 font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg"
             type="submit"
@@ -213,7 +257,7 @@ const LiquidityControls = ({ handleSubmit }) => {
 };
 
 const CommonControls = () => (
-  <>
+  <div className="flex gap-3">
     {/* Input  */}
     <FormikControl
       control={"input"}
@@ -238,7 +282,7 @@ const CommonControls = () => (
       name={"tokenTotalSupply"}
       placeholder={"Ex: 100,000,000"}
     />
-  </>
+  </div>
 );
 
 // EXPORT ====================
