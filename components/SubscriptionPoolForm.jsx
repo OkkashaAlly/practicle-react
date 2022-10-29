@@ -6,7 +6,7 @@ import InputNote from "./shared/InputNote";
 // ================================
 // FORMIK CONTAINER COMPONENT =====
 // ================================
-const DutchAuctionForm = () => {
+const SubscriptionPoolForm = () => {
   const feeOptions = [
     {
       key: "5%",
@@ -109,4 +109,4 @@ const DutchAuctionForm = () => {
 };
 
 // EXPORT ====================
-export default DutchAuctionForm;
+export default SubscriptionPoolForm;
