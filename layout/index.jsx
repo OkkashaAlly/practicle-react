@@ -1,13 +1,14 @@
 import { Navbar, SideNav } from "@/components/common/nav";
+import SideBar from "./SideBar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="bg-ban w-full h-screen">
+    <div className="bg-ban w-full min-h-screen">
       <Navbar />
-      <span className="w-full flex flex-row justify-center items-center">
-        <SideNav />
-        <span>{children}</span>
-      </span>
+      <div className="w-full flex">
+        <SideBar />
+        <div className="flex-1 bg-green-800 min-h-screen">{children}</div>
+      </div>
     </div>
   );
 };
