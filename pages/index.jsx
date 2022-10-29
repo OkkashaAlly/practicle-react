@@ -197,7 +197,7 @@ const ContentCard = ({ title, subtitle, img }) => {
 
 const Button = ({ styles = "primary", action, text }) => {
   const primary =
-    "font-bold py-3 px-4 bg-rose-700 hover:bg-rose-900 text-neutral-300 rounded-full capitalize text-lg";
+    "font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg";
 
   return (
     <button

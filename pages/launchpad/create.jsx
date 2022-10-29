@@ -1,4 +1,5 @@
 import React from "react";
+import LaunchpadForm from '../../components/LaunchpadForm'
 
 const StepItem = ({ title, subtitle, number }) => (
   <div className="flex w-full">
@@ -21,7 +22,7 @@ const create = () => {
   return (
     <div className="p-6">
       {/* steps  */}
-      <div className="flex mt-3 gap-4">
+      {/* <div className="flex mt-3 gap-4">
         <StepItem
           number={1}
           title={"Verify Token"}
@@ -44,10 +45,10 @@ const create = () => {
           title={"Finish"}
           subtitle={"Review your information"}
         />
-      </div>
+      </div> */}
 
       {/* form  */}
-      
+      <LaunchpadForm />
     </div>
   );
 };
