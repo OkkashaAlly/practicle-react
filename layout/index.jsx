@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
           mobileMenu={mobileMenu}
           setMobileMenu={setMobileMenu}
         />
-        <div className="flex-1 min-h-screen text-neutral-300">{children}</div>
+        <div className="flex-1 min-h-screen text-neutral-300 p-4 md:p-8 lg:px-10">{children}</div>
       </div>
     </div>
   );

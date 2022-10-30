@@ -34,6 +34,9 @@ const SideBar = ({
       },
       dropdowns: [
         {
+          pathname: "/launchpad/list",
+          text: "launchpad list",
+        },{
           pathname: "/launchpad/create",
           text: "create launchpad",
         },
@@ -96,7 +99,6 @@ const SideBar = ({
   //   },
   // ];
 
-  // console.log(router);
   return (
     <>
       <aside
@@ -105,13 +107,7 @@ const SideBar = ({
         } border-r border-neutral-600 p-4 animation-300 hidden md:block`}
       >
         <nav className="">
-          {navLinks.map((link, i) => {
-            // console.log(link.dropdowns);
-
-            // link.active = router.pathname === link.pathname ? true : false;
-            // link.active = router.pathname === link.dropdowns.pathname ? true : false;
-
-            return (
+          {navLinks.map((link, i) => (
               <NavItem
                 key={i}
                 item={link}
@@ -119,8 +115,8 @@ const SideBar = ({
                 setSidebarOpen={setSidebarOpen}
                 setMobileMenu={setMobileMenu}
               />
-            );
-          })}
+            )
+          )}
         </nav>
       </aside>
 
@@ -142,13 +138,6 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
 
   const router = useRouter();
 
-  // item.dropdowns?.map((dropdown, i) => {
-  //   item.active = router.pathname === item.pathname ? true : false;
-  //   item.active = router.pathname === dropdown.pathname ? true : false;
-  // item.active = router.pathname === item.pathname ? true : false;
-  // });
-  // console.log(router.pathname, dropdown.pathname);
-
   return item.single ? (
     <>
       {" "}
@@ -158,7 +147,6 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
           onClick={_ => {
             setMobileMenu(false);
             setDropdownOpen(false);
-            // setSidebarOpen(false);
           }}
           className={`p-2 my-2 cursor-pointer ${
             item.active && "bg-neutral-700"
