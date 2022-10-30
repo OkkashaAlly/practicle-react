@@ -3,6 +3,9 @@ import { useState } from "react";
 import SideBar from "./SideBar";
 import Header from "./Header";
 
+// ===============================
+//  LAYOUT COMPONENTS ============
+// ===============================
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileMenu, setMobileMenu] = useState(false);
