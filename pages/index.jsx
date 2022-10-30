@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 const Home = () => {
   return (
@@ -214,7 +213,7 @@ const TopBarPage = () => {
   return <div className="flex "></div>;
 };
 
-const CommonContent = ({ title, sub1, sub2 }) => (
+export const CommonContent = ({ title, sub1, sub2 }) => (
   <div className="text-center ">
     <h3 className="text-4xl font-bold mb-3">{title}</h3>
     <div className="w-[80%] mx-auto">

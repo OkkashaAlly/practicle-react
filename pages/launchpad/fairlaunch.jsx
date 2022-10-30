@@ -21,32 +21,6 @@ const StepItem = ({ title, subtitle, number }) => (
 const fairlaunch = () => {
   return (
     <div>
-      {/* steps  */}
-      {/* <div className="flex mt-3 gap-4">
-        <StepItem
-          number={1}
-          title={"Verify Token"}
-          subtitle={"Enter the token address and verify"}
-        />
-        <StepItem
-          number={1}
-          title={"Subscription"}
-          subtitle={
-            "Enter the subscription pool information that you want to raise, that should be enter all details about your presale"
-          }
-        />
-        <StepItem
-          number={3}
-          title={"Add Additional Info"}
-          subtitle={"Let people know who you are"}
-        />
-        <StepItem
-          number={4}
-          title={"Finish"}
-          subtitle={"Review your information"}
-        />
-      </div> */}
-
       {/* form  */}
       <FairlaunchForm />
     </div>
