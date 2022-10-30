@@ -36,7 +36,8 @@ const SideBar = ({
         {
           pathname: "/launchpad/list",
           text: "launchpad list",
-        },{
+        },
+        {
           pathname: "/launchpad/create",
           text: "create launchpad",
         },
@@ -103,20 +104,19 @@ const SideBar = ({
     <>
       <aside
         className={`min-h-screen ${
-          sidebarOpen ? "w-52" : "w-20"
-        } border-r border-neutral-600 p-4 animation-300 hidden md:block`}
+          sidebarOpen ? "w-52" : "w-18"
+        } border-r border-neutral-600  animation-300 hidden md:block`}
       >
         <nav className="">
           {navLinks.map((link, i) => (
-              <NavItem
-                key={i}
-                item={link}
-                sidebarOpen={sidebarOpen}
-                setSidebarOpen={setSidebarOpen}
-                setMobileMenu={setMobileMenu}
-              />
-            )
-          )}
+            <NavItem
+              key={i}
+              item={link}
+              sidebarOpen={sidebarOpen}
+              setSidebarOpen={setSidebarOpen}
+              setMobileMenu={setMobileMenu}
+            />
+          ))}
         </nav>
       </aside>
 
@@ -148,9 +148,9 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
             setMobileMenu(false);
             setDropdownOpen(false);
           }}
-          className={`p-2 my-2 cursor-pointer ${
+          className={`p-3 px-4  cursor-pointer ${
             item.active && "bg-neutral-700"
-          } hover:bg-neutral-700 text-neutral-300 rounded-lg flex items-center gap-3`}
+          } hover:bg-neutral-700 text-neutral-300  flex items-center gap-3`}
         >
           <span className="h-8 w-8 p-2 bg-rose-100 rounded-full flex items-center justify-center">
             {item.icon()}
@@ -168,9 +168,9 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
         drop => (drop.active = router.pathname === drop.pathname ? true : false)
       )}
       <div
-        className={`p-2 my-2 cursor-pointer ${
+        className={`p-3 px-4  cursor-pointer ${
           router.pathname.includes(item.text) && "bg-neutral-700"
-        } hover:bg-neutral-700 text-neutral-300 rounded-lg `}
+        } hover:bg-neutral-700 text-neutral-300 `}
         onClick={_ => {
           setDropdownOpen(!dropdownOpen);
         }}
@@ -189,12 +189,11 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
           <div
             className={`${
               !dropdownOpen && "hidden"
-            } absolute -top-6 left-14 bg-neutral-800 rounded duration-300 w-52 mb-4`}
+            } absolute -top-6 left-14 bg-neutral-800 duration-300 w-52 mb-4`}
           >
             {item.dropdowns.map((drop, i) => (
               <Link href={drop.pathname} key={i}>
                 <div
-                  
                   onClick={_ => setDropdownOpen(false)}
                   className={`capitalize flex items-center py-2 ${
                     drop.active
@@ -212,12 +211,11 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
           <div
             className={`${
               !dropdownOpen && "hidden"
-            } rounded  bg-neutral-800 mb-4`}
+            }   bg-neutral-800 mb-4`}
           >
             {item.dropdowns.map((drop, i) => (
               <Link href={drop.pathname} key={i}>
                 <div
-                  
                   onClick={_ => {
                     setMobileMenu(false);
                   }}
@@ -250,7 +248,7 @@ const MobileNav = ({
     <aside
       className={`absolute top-0 ${
         mobileMenu ? "left-0" : "-left-[70%]"
-      } text-white p-4 bg-neutral-500 bg-opacity-60 backdrop-blur-xl backdrop-filter bg-clip-padding z-20 w-[70%] min-h-screen h-full duration-300`}
+      } text-white bg-neutral-500 bg-opacity-60 backdrop-blur-xl backdrop-filter bg-clip-padding z-20 w-[70%] min-h-screen h-full duration-300`}
     >
       <nav className="">
         {navLinks.map((link, i) => (
@@ -263,12 +261,6 @@ const MobileNav = ({
           />
         ))}
       </nav>
-
-      <div className="block md:hidden">
-        <Network
-          network={{ name: "bsc mainnet", icon: <Binance size={20} /> }}
-        />
-      </div>
     </aside>
   );
 };
