@@ -149,7 +149,7 @@ const StandardControls = ({ handleSubmit }) => {
     tokenDecimals: Yup.string().required("Required"),
   });
 
-  /////////////////
+  ///////////////// 
   // RETURN =======
   return (
     <Formik
@@ -223,7 +223,7 @@ const LiquidityControls = ({ handleSubmit, routerOptions }) => {
             options={routerOptions}
           />
 
-          <div className="flex gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {/* Input  */}
             <FormikControl
               control={"input"}
@@ -242,7 +242,7 @@ const LiquidityControls = ({ handleSubmit, routerOptions }) => {
             />
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {/* Input  */}
             <FormikControl
               control={"input"}
@@ -320,7 +320,7 @@ const BabyControls = ({ handleSubmit, routerOptions }) => {
             options={routerOptions}
           />
 
-          <div className="flex gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {/* Input  */}
             <FormikControl
               control={"input"}
@@ -339,7 +339,7 @@ const BabyControls = ({ handleSubmit, routerOptions }) => {
             />
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {/* Input  */}
             <FormikControl
               control={"input"}
@@ -358,7 +358,7 @@ const BabyControls = ({ handleSubmit, routerOptions }) => {
             />
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {/* Input  */}
             <FormikControl
               control={"input"}
@@ -434,7 +434,7 @@ const BuybackControls = ({ handleSubmit, routerOptions }) => {
             options={routerOptions}
           />
 
-          <div className="flex gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {/* Input  */}
             <FormikControl
               control={"input"}
@@ -453,7 +453,7 @@ const BuybackControls = ({ handleSubmit, routerOptions }) => {
             />
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {/* Input  */}
             <FormikControl
               control={"input"}
@@ -472,7 +472,7 @@ const BuybackControls = ({ handleSubmit, routerOptions }) => {
             />
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col lg:flex-row gap-3">
             {/* Input  */}
             <FormikControl
               control={"input"}
@@ -496,7 +496,7 @@ const BuybackControls = ({ handleSubmit, routerOptions }) => {
 };
 
 const CommonControls = () => (
-  <div className="flex gap-3">
+  <div className="flex flex-col lg:flex-row gap-3">
     {/* Input  */}
     <FormikControl
       control={"input"}

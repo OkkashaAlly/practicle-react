@@ -20,7 +20,7 @@ const StepItem = ({ title, subtitle, number }) => (
 
 const dutchAuction = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 md:p-8 lg:px-10">
       {/* steps  */}
       {/* <div className="flex mt-3 gap-4">
         <StepItem
