@@ -8,7 +8,7 @@ import {
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
 
-const SideBar = () => {
+const SideBar = ({ sidebarOpen, setSidebarOpen }) => {
   const navLinks = [
     {
       single: true,
@@ -88,14 +88,13 @@ const SideBar = () => {
   //   },
   // ];
 
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileMenu, setMobileMenu] = useState(true);
 
   return (
     <aside
       className={`min-h-screen ${
         sidebarOpen ? "w-52" : "w-20"
-      } border-r border-neutral-600 p-4`}
+      } border-r border-neutral-600 p-4 animation-300`}
     >
       <div className="">
         {navLinks.map((link, i) => (
@@ -103,6 +102,7 @@ const SideBar = () => {
             key={i}
             item={link}
             sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
             setMobileMenu={setMobileMenu}
           />
         ))}
@@ -113,13 +113,17 @@ const SideBar = () => {
 
 ///////////////////////
 // EXTENDED COMPONENTS
-const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
+const NavItem = ({ item, sidebarOpen, setSidebarOpen, setMobileMenu }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return item.single ? (
     <Link href={item.pathname}>
       <div
-        onClick={_ => setMobileMenu(false)}
+        onClick={_ => {
+          setMobileMenu(false);
+          setDropdownOpen(false);
+          // setSidebarOpen(false);
+        }}
         className={`p-2 my-2 cursor-pointer ${
           item.active && "bg-neutral-700"
         } hover:bg-neutral-700 text-neutral-300 rounded-lg flex items-center gap-3`}
@@ -138,7 +142,9 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
         className={`p-2 my-2 cursor-pointer ${
           item.active && "bg-neutral-700"
         } hover:bg-neutral-700 text-neutral-300 rounded-lg `}
-        onClick={_ => setDropdownOpen(!dropdownOpen)}
+        onClick={_ => {
+          setDropdownOpen(!dropdownOpen);
+        }}
       >
         <div className="flex items-center gap-3 ">
           <span className="h-8 w-8 p-2 bg-rose-100 rounded-full flex items-center justify-center">
@@ -149,18 +155,42 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
           </span>
         </div>
       </div>
-      <div className={`${!dropdownOpen && "hidden"}  bg-neutral-800 mb-4`}>
-        {item.dropdowns.map((drop, i) => (
-          <Link href={drop.pathname}>
-            <div
-              key={i}
-              className="capitalize flex items-center py-2 text-neutral-400 hover:text-neutral-100 ml-4"
-            >
-              <RiCheckboxBlankCircleFill className="mr-2 h-2 w-2" />
-              {drop.text}
-            </div>
-          </Link>
-        ))}
+      <div className="relative">
+        {!sidebarOpen && dropdownOpen ? (
+          <div
+            className={`${
+              !dropdownOpen && "hidden"
+            } absolute -top-6 left-14 bg-neutral-800 w-52 mb-4`}
+          >
+            {item.dropdowns.map((drop, i) => (
+              <Link href={drop.pathname}>
+                <div
+                  key={i}
+                  onClick={_ => setDropdownOpen(false)}
+                  className="capitalize flex items-center py-2 text-neutral-400 hover:text-neutral-100 ml-4"
+                >
+                  <RiCheckboxBlankCircleFill className="mr-2 h-2 w-2" />
+                  {drop.text}
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className={`${!dropdownOpen && "hidden"}  bg-neutral-800 mb-4`}>
+            {item.dropdowns.map((drop, i) => (
+              <Link href={drop.pathname}>
+                <div
+                  key={i}
+                  onClick={_ => {}}
+                  className="capitalize flex items-center py-2 text-neutral-400 hover:text-neutral-100 ml-4"
+                >
+                  <RiCheckboxBlankCircleFill className="mr-2 h-2 w-2" />
+                  {drop.text}
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}{" "}
       </div>
     </>
   );
