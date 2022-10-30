@@ -194,7 +194,11 @@ const NavItem = ({ item, sidebarOpen, setSidebarOpen, setMobileMenu }) => {
               <Link href={drop.pathname}>
                 <div
                   key={i}
-                  onClick={_ => {}}
+                  onClick={_ => {
+                    setMobileMenu(false);
+                    // setDropdownOpen(false);
+                    // setSidebarOpen(false);
+                  }}
                   className="capitalize flex items-center py-2 text-neutral-400 hover:text-neutral-100 ml-4"
                 >
                   <RiCheckboxBlankCircleFill className="mr-2 h-2 w-2" />

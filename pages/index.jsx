@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full md:pt-12 py-4 px-6">
       <TopBarPage />
 
       {/* page */}
-      <div className="flex flex-col items-center pt-12">
+      <div className="flex flex-col md:items-center ">
         {/* Protocol  */}
-        <div className="w-[70%] ">
+        <div className="md:w-[90%] lg:w-[80%] ">
           <CommonContent
             title={"The Launchpad Protocol for Everyone!"}
             sub1={
@@ -26,7 +26,7 @@ const Home = () => {
           </div>
 
           {/* items  */}
-          <div className="flex gap-4 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4 mt-12">
             <ContentCard
               title={"$390.9M"}
               subtitle={"Total Liquidity Raised"}
@@ -38,7 +38,7 @@ const Home = () => {
         </div>
 
         {/* Suite of Tools */}
-        <div className="w-[90%] mt-24">
+        <div className="md:w-[90%] mt-24">
           <CommonContent
             title={"A Suite of Tools for Token Sales."}
             sub1={
@@ -49,7 +49,7 @@ const Home = () => {
           {/* items  */}
           <div className="flex flex-col gap-4 mt-12">
             {/* row  */}
-            <div className="flex gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4">
               <ContentCard
                 img
                 title={"Standard"}
@@ -80,7 +80,7 @@ const Home = () => {
               />
             </div>
             {/* row  */}
-            <div className="flex gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4">
               <ContentCard
                 img
                 title={"Branding"}
@@ -114,7 +114,7 @@ const Home = () => {
         </div>
 
         {/* A Growing Protocol Ecosystem. */}
-        <div className="w-[90%] my-24">
+        <div className="md:w-[90%] my-24">
           <CommonContent
             title={"A Growing Protocol Ecosystem."}
             sub1={
@@ -125,7 +125,7 @@ const Home = () => {
           {/* items  */}
           <div className="flex flex-col gap-4 mt-12">
             {/* row  */}
-            <div className="flex gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4">
               <ContentCard
                 img
                 title={"PinkMoon"}
@@ -148,7 +148,7 @@ const Home = () => {
               />
             </div>
             {/* row  */}
-            <div className="flex gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4">
               <ContentCard
                 img
                 title={"PinkElon"}
