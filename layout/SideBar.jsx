@@ -230,7 +230,7 @@ const MobileNav = ({
     <aside
       className={`absolute top-0 ${
         mobileMenu ? "left-0" : "-left-[70%]"
-      } text-white p-4 bg-neutral-500 bg-opacity-60 backdrop-blur-xl backdrop-filter bg-clip-padding z-20 w-[70%] min-h-screen duration-300`}
+      } text-white p-4 bg-neutral-500 bg-opacity-60 backdrop-blur-xl backdrop-filter bg-clip-padding z-20 w-[70%] min-h-screen h-full duration-300`}
     >
       <nav className="">
         {navLinks.map((link, i) => (
