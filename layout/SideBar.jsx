@@ -8,6 +8,8 @@ import {
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
 
+import { SiBinance as Binance } from "react-icons/si";
+
 const SideBar = ({
   sidebarOpen,
   setSidebarOpen,
@@ -189,7 +191,11 @@ const NavItem = ({ item, sidebarOpen, setSidebarOpen, setMobileMenu }) => {
             ))}
           </div>
         ) : (
-          <div className={`${!dropdownOpen && "hidden"} rounded  bg-neutral-800 mb-4`}>
+          <div
+            className={`${
+              !dropdownOpen && "hidden"
+            } rounded  bg-neutral-800 mb-4`}
+          >
             {item.dropdowns.map((drop, i) => (
               <Link href={drop.pathname}>
                 <div
@@ -237,8 +243,23 @@ const MobileNav = ({
           />
         ))}
       </nav>
+
+      <div className="block md:hidden">
+        <Network
+          network={{ name: "bsc mainnet", icon: <Binance size={20} /> }}
+        />
+      </div>
     </aside>
   );
 };
+
+const Network = ({ network }) => (
+  <button className="bg-ban rounded-full px-2 py-1 flex flex-row justify-end items-center space-x-2">
+    <span className="text-greey p-1">{network.icon}</span>
+    <span className="w-full h-full flex flex-col items-end -space-y-1 text-greey">
+      <p className="uppercase">{network.name}</p>
+    </span>
+  </button>
+);
 
 export default SideBar;

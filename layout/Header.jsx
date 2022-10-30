@@ -7,7 +7,7 @@ import { RiMenuLine, RiMenuFoldLine } from "react-icons/ri";
 // ===============================
 const Header = ({ sidebarOpen, setSidebarOpen, mobileMenu, setMobileMenu }) => {
   return (
-    <header className="w-full bg-tan py-4 px-8">
+    <header className="w-full bg-tan p-4 md:px-8">
       <div className="w-full flex flex-row justify-between items-center">
         <div className="items-center gap-3 hidden md:flex">
           {sidebarOpen ? (
@@ -48,7 +48,7 @@ const Header = ({ sidebarOpen, setSidebarOpen, mobileMenu, setMobileMenu }) => {
           <Brand />
         </div>
 
-        <Account />
+        <Account  />
       </div>
     </header>
   );
@@ -62,7 +62,9 @@ const Brand = () => (
 
 const Account = () => (
   <div className="w-full flex flex-row justify-end items-center space-x-2">
-    <Network network={{ name: "bsc mainnet", icon: <Binance size={20} /> }} />
+    <div className="hidden md:block">
+      <Network network={{ name: "bsc mainnet", icon: <Binance size={20} /> }} />
+    </div>
     <Address
       address={"0x0efA...28CB"}
       balance={{ amount: "0.0006", currency: "BNB" }}
