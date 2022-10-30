@@ -7,9 +7,12 @@ import {
   RiRocketLine,
   RiShieldKeyholeLine,
   RiCheckboxBlankCircleFill,
+  RiTelegramLine,
+  RiTwitterLine,
+  RiFacebookBoxLine,
 } from "react-icons/ri";
 
-import { SiBinance as Binance } from "react-icons/si";
+// import { SiBinance as Binance } from "react-icons/si";
 
 const SideBar = ({
   sidebarOpen,
@@ -26,6 +29,7 @@ const SideBar = ({
         return <RiHome3Line className="text-pink h-7 w-7" />;
       },
     },
+
     {
       single: false,
       text: "launchpad",
@@ -67,14 +71,38 @@ const SideBar = ({
       },
       dropdowns: [
         {
-          pathname: "/",
+          pathname: "/private-list",
           text: "private list",
         },
         {
-          pathname: "/",
+          pathname: "/private-sale",
           text: "private sale",
         },
       ],
+    },
+    {
+      single: true,
+      pathname: "/Telegram",
+      text: "Telegram",
+      icon: () => {
+        return <RiTelegramLine className="text-pink h-7 w-7" />;
+      },
+    },
+    {
+      single: true,
+      pathname: "/Twitter",
+      text: "Twitter",
+      icon: () => {
+        return <RiTwitterLine className="text-pink h-7 w-7" />;
+      },
+    },
+    {
+      single: true,
+      pathname: "/Facebook",
+      text: "Facebook",
+      icon: () => {
+        return <RiFacebookBoxLine className="text-pink h-7 w-7" />;
+      },
     },
   ];
   //   {
@@ -208,11 +236,7 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
             ))}
           </div>
         ) : (
-          <div
-            className={`${
-              !dropdownOpen && "hidden"
-            }   bg-neutral-800 mb-4`}
-          >
+          <div className={`${!dropdownOpen && "hidden"}   bg-neutral-800 mb-4`}>
             {item.dropdowns.map((drop, i) => (
               <Link href={drop.pathname} key={i}>
                 <div
