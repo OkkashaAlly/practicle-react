@@ -5,11 +5,11 @@ import { RiMenuLine, RiMenuFoldLine } from "react-icons/ri";
 // ===============================
 // HEADER LAYOUT COMPONENTS ======
 // ===============================
-const Header = ({ sidebarOpen, setSidebarOpen }) => {
+const Header = ({ sidebarOpen, setSidebarOpen, mobileMenu, setMobileMenu }) => {
   return (
     <header className="w-full bg-tan py-4 px-8">
       <div className="w-full flex flex-row justify-between items-center">
-        <div className="flex items-center gap-3">
+        <div className="items-center gap-3 hidden md:flex">
           {sidebarOpen ? (
             <RiMenuFoldLine
               onClick={_ => {
@@ -27,6 +27,27 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
           )}
           <Brand />
         </div>
+
+        {/* mobile */}
+        <div className="flex items-center gap-3 md:hidden">
+          {mobileMenu ? (
+            <RiMenuFoldLine
+              onClick={_ => {
+                setMobileMenu(!mobileMenu);
+              }}
+              className="h-7 w-7 cursor-pointer text-neutral-300"
+            />
+          ) : (
+            <RiMenuLine
+              onClick={_ => {
+                setMobileMenu(!mobileMenu);
+              }}
+              className="h-7 w-7 cursor-pointer text-neutral-300"
+            />
+          )}
+          <Brand />
+        </div>
+
         <Account />
       </div>
     </header>

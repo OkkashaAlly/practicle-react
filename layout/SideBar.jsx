@@ -8,7 +8,12 @@ import {
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
 
-const SideBar = ({ sidebarOpen, setSidebarOpen }) => {
+const SideBar = ({
+  sidebarOpen,
+  setSidebarOpen,
+  mobileMenu,
+  setMobileMenu,
+}) => {
   const navLinks = [
     {
       single: true,
@@ -88,26 +93,34 @@ const SideBar = ({ sidebarOpen, setSidebarOpen }) => {
   //   },
   // ];
 
-  const [mobileMenu, setMobileMenu] = useState(true);
-
   return (
-    <aside
-      className={`min-h-screen ${
-        sidebarOpen ? "w-52" : "w-20"
-      } border-r border-neutral-600 p-4 animation-300`}
-    >
-      <div className="">
-        {navLinks.map((link, i) => (
-          <NavItem
-            key={i}
-            item={link}
-            sidebarOpen={sidebarOpen}
-            setSidebarOpen={setSidebarOpen}
-            setMobileMenu={setMobileMenu}
-          />
-        ))}
-      </div>
-    </aside>
+    <>
+      <aside
+        className={`min-h-screen ${
+          sidebarOpen ? "w-52" : "w-20"
+        } border-r border-neutral-600 p-4 animation-300 hidden md:block`}
+      >
+        <nav className="">
+          {navLinks.map((link, i) => (
+            <NavItem
+              key={i}
+              item={link}
+              sidebarOpen={sidebarOpen}
+              setSidebarOpen={setSidebarOpen}
+              setMobileMenu={setMobileMenu}
+            />
+          ))}
+        </nav>
+      </aside>
+
+      <MobileNav
+        navLinks={navLinks}
+        mobileMenu={mobileMenu}
+        setMobileMenu={setMobileMenu}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
+    </>
   );
 };
 
@@ -160,7 +173,7 @@ const NavItem = ({ item, sidebarOpen, setSidebarOpen, setMobileMenu }) => {
           <div
             className={`${
               !dropdownOpen && "hidden"
-            } absolute -top-6 left-14 bg-neutral-800 w-52 mb-4`}
+            } absolute -top-6 left-14 bg-neutral-800 rounded w-52 mb-4`}
           >
             {item.dropdowns.map((drop, i) => (
               <Link href={drop.pathname}>
@@ -176,7 +189,7 @@ const NavItem = ({ item, sidebarOpen, setSidebarOpen, setMobileMenu }) => {
             ))}
           </div>
         ) : (
-          <div className={`${!dropdownOpen && "hidden"}  bg-neutral-800 mb-4`}>
+          <div className={`${!dropdownOpen && "hidden"} rounded  bg-neutral-800 mb-4`}>
             {item.dropdowns.map((drop, i) => (
               <Link href={drop.pathname}>
                 <div
@@ -193,6 +206,34 @@ const NavItem = ({ item, sidebarOpen, setSidebarOpen, setMobileMenu }) => {
         )}{" "}
       </div>
     </>
+  );
+};
+
+const MobileNav = ({
+  navLinks,
+  mobileMenu,
+  setMobileMenu,
+  sidebarOpen,
+  setSidebarOpen,
+}) => {
+  return (
+    <aside
+      className={`absolute top-0 ${
+        mobileMenu ? "left-0" : "-left-[70%]"
+      } text-white p-4 bg-neutral-500 bg-opacity-60 backdrop-blur-xl backdrop-filter bg-clip-padding z-20 w-[70%] min-h-screen duration-300`}
+    >
+      <nav className="">
+        {navLinks.map((link, i) => (
+          <NavItem
+            key={i}
+            item={link}
+            sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+            setMobileMenu={setMobileMenu}
+          />
+        ))}
+      </nav>
+    </aside>
   );
 };
 
