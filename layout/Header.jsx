@@ -82,7 +82,7 @@ const Account = () => {
   return (
     <>
       <div className="w-full flex flex-row justify-end items-center space-x-2">
-        <div className="hidden md:block">
+        <div className="">
           <NetworkButton
             action={_ => setShowModal(true)}
             network={network}
@@ -114,11 +114,11 @@ const Account = () => {
 const NetworkButton = ({ network, action }) => (
   <button
     onClick={action}
-    className="bg-ban rounded-full px-2 py-1 flex flex-row justify-end items-center space-x-2"
+    className="bg-ban rounded-full px-2 py-1 flex flex-row justify-end items-center"
   >
     <span className="text-greey p-1">{network.icon}</span>
-    <span className="w-full h-full flex flex-col items-end -space-y-1 text-greey">
-      <p className="uppercase">{network.name}</p>
+    <span className="w-full h-full flex flex-col items-end text-greey">
+      <p className="uppercase sm:block hidden ml-2">{network.name}</p>
     </span>
   </button>
 );
@@ -132,13 +132,13 @@ const NetworkItem = ({ network, setNetwork, setShowModal }) => (
     className="p-4 flex-1 rounded-lg bg-neutral-800 flex flex-col items-center justify-center gap-2"
   >
     <span className="text-greey p-1">{network.icon}</span>
-    <span className="uppercase">{network.name}</span>
+    <span className="uppercase ">{network.name}</span>
   </button>
 );
 
 const Address = ({ address, balance }) => (
-  <button className="bg-ban rounded-full px-2 py-1 flex flex-row justify-end items-center space-x-2">
-    <span className="w-full h-full flex flex-col items-end -space-y-1 text-greey">
+  <button className="bg-ban rounded-full px-2 py-1 flex flex-row justify-end items-center ">
+    <span className="sm:flex hidden mr-2 w-full h-full  flex-col items-end -space-y-1 text-greey">
       <small className="text-pink">{address}</small>
       <p>
         {balance.amount} {balance.currency}
