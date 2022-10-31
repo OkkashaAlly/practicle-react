@@ -1,7 +1,7 @@
 import { RiCheckLine } from "react-icons/ri";
 
-const FormSteps = ({ step2 }) => {
-  const active = 2;
+const FormSteps = ({ step2, active }) => {
+  
 
   return (
     <div className="my-4 hidden lg:flex gap-3">

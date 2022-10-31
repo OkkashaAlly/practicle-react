@@ -113,7 +113,7 @@ const CardList = () => {
   const [notify, setNotify] = useState(false);
 
   return (
-    <div className="p-5 px-6 flex flex-col gap-4 rounded-lg bg-neutral-800 ">
+    <div className="p-5 px-6 flex flex-col gap-4 shadow rounded-lg bg-neutral-800 ">
       <div className="flex justify-between">
         {/* img  */}
         <div className="">
