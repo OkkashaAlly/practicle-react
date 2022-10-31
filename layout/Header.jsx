@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SiBinance as Binance } from "react-icons/si";
 import { IoWalletOutline as Wallet } from "react-icons/io5";
 import { RiMenuLine, RiMenuFoldLine } from "react-icons/ri";
+import Link from "next/link";
 
 // ===============================
 // HEADER LAYOUT COMPONENTS ======
@@ -137,7 +138,7 @@ const NetworkItem = ({ network, setNetwork, setShowModal }) => (
 );
 
 const Address = ({ address, balance }) => (
-  <button className="bg-ban rounded-full px-2 py-1 flex flex-row justify-end items-center ">
+  <Link href={'/me'} className="bg-ban rounded-full px-2 py-1 flex flex-row justify-end items-center ">
     <span className="sm:flex hidden mr-2 w-full h-full  flex-col items-end -space-y-1 text-greey">
       <small className="text-pink">{address}</small>
       <p>
@@ -147,7 +148,7 @@ const Address = ({ address, balance }) => (
     <span className="rounded-full border-[.8px] border-white text-greey p-1">
       <Wallet size={20} />
     </span>
-  </button>
+  </Link>
 );
 
 const Modal = ({ handleClose, show, children }) => {

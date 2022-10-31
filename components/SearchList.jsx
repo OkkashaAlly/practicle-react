@@ -6,6 +6,8 @@ import {
   RiNotification4Line,
 } from "react-icons/ri";
 
+import Button from "./shared/Button";
+
 // ================================
 // FORMIK CONTAINER COMPONENT =====
 // ================================
@@ -222,14 +224,7 @@ const ButtonIcon = ({ icon1, icon2, value, action }) => (
   </span>
 );
 
-const Button = ({ text, action }) => (
-  <button
-    className="py-2 px-4 rounded-lg capitalize text-base font-semibold text-pink bg-[#3b0619]"
-    onClick={action}
-  >
-    {text}
-  </button>
-);
+
 
 const SearchInput = ({ handleChange }) => (
   <div className="flex flex-col">

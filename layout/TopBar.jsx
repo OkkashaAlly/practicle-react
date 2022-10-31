@@ -37,7 +37,6 @@ const TopBar = () => {
     setTimeout(_ => fetchCoins(), [10000]);
   }, []);
 
-  console.log(coins);
 
   return (
     <div className="bg-tan mt-0.5 flex items-center overflow-x-auto  gap-4 p-3 px-5">
