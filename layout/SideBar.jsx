@@ -177,7 +177,7 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
             setDropdownOpen(false);
           }}
           className={`p-3 px-4  cursor-pointer ${
-            item.active && "bg-neutral-700"
+            item.active && "bg-rose-100 text-pink"
           } hover:bg-neutral-700 text-neutral-300  flex items-center gap-3`}
         >
           <span className="h-8 w-8 p-2 bg-rose-100 rounded-full flex items-center justify-center">
@@ -197,7 +197,7 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
       )}
       <div
         className={`p-3 px-4  cursor-pointer ${
-          router.pathname.includes(item.text) && "bg-neutral-700"
+          router.pathname.includes(item.text) && "bg-rose-100 text-pink"
         } hover:bg-neutral-700 text-neutral-300 `}
         onClick={_ => {
           setDropdownOpen(!dropdownOpen);
