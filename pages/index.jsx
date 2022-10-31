@@ -1,8 +1,7 @@
 
 const Home = () => {
   return (
-    <div className="min-h-screen w-full md:pt-12 py-4 px-6">
-      <TopBarPage />
+    <div className="min-h-screen w-full pt-3 ">
 
       {/* page */}
       <div className="flex flex-col md:items-center ">
