@@ -1,7 +1,4 @@
-import Input from "./shared/Input";
-import Textarea from "./shared/Textarea";
-import Select from "./shared/Select";
-import RadioButtons from "./shared/RadioButtons";
+import { Input, Textarea, Select, RadioButtons } from "./";
 
 // ================================
 // FORMIK CONTROL COMPONENT =======
@@ -19,7 +16,7 @@ const FormikControl = ({ control, ...rest }) => {
 
     case "radio":
       return <RadioButtons {...rest} />;
-      
+
     case "checkbox":
       break;
     case "date":

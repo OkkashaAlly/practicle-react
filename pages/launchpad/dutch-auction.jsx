@@ -1,5 +1,4 @@
-import React from "react";
-import DutchAuctionForm from "../../components/DutchAuctionForm";
+import { DutchAuctionForm } from "../../components/";
 
 const StepItem = ({ title, subtitle, number }) => (
   <div className="flex w-full">
@@ -18,6 +17,9 @@ const StepItem = ({ title, subtitle, number }) => (
   </div>
 );
 
+// ===============================
+// DUTCH AUCTION PAGE COMPONENT ==
+// ===============================
 const dutchAuction = () => {
   return (
     <div>
@@ -27,4 +29,5 @@ const dutchAuction = () => {
   );
 };
 
+// EXPORT ===========
 export default dutchAuction;

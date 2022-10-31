@@ -1,5 +1,4 @@
-import React from "react";
-import Button from "../components/shared/Button";
+import { Button } from "../components/";
 
 const me = () => {
   return (
@@ -15,7 +14,7 @@ const me = () => {
       </div>
 
       <div className="">
-        <Button action={_ => {}} styles='secondary' text={'logout'} />
+        <Button action={_ => {}} styles="secondary" text={"logout"} />
       </div>
     </div>
   );

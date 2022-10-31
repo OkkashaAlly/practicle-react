@@ -1,5 +1,4 @@
-import React from "react";
-import TokenForm from "../../components/TokenForm";
+import { TokenForm } from "../../components/";
 
 const StepItem = ({ title, subtitle, number }) => (
   <div className="flex w-full">

@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-import LaunchpadForm from "../../components/LaunchpadForm";
-import FormSteps from "../../components/shared/FormSteps";
+import { LaunchpadForm, FormSteps } from "../../components/";
 
+// ==========================
+// CREATE PAGE COMPONENT ====
+// ==========================
 const create = () => {
   const [page, setPage] = useState(1);
 
@@ -11,6 +13,8 @@ const create = () => {
     sub: "Enter the launchpad information that you want to raise , that should be enter all details about your presale",
   };
 
+  // ================
+  // RETURN =========
   return (
     <div>
       {/* form  */}
@@ -20,4 +24,5 @@ const create = () => {
   );
 };
 
+// EXPORT ===========
 export default create;

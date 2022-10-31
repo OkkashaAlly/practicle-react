@@ -3,8 +3,7 @@ import { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-import FormikControl from "./FormikControl";
-import InputNote from "./shared/InputNote";
+import { FormikControl, InputNote } from "./";
 
 // ================================
 // FORMIK CONTAINER COMPONENT =====
@@ -149,7 +148,7 @@ const StandardControls = ({ handleSubmit }) => {
     tokenDecimals: Yup.string().required("Required"),
   });
 
-  ///////////////// 
+  /////////////////
   // RETURN =======
   return (
     <Formik

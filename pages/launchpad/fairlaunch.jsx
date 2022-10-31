@@ -1,5 +1,4 @@
-import React from "react";
-import FairlaunchForm from "../../components/FairlaunchForm";
+import { FairlaunchForm } from "../../components/";
 
 const StepItem = ({ title, subtitle, number }) => (
   <div className="flex w-full">
@@ -18,6 +17,9 @@ const StepItem = ({ title, subtitle, number }) => (
   </div>
 );
 
+// ===============================
+// FAIR LAUNCH PAGE COMPONENT ====
+// ===============================
 const fairlaunch = () => {
   return (
     <div>
@@ -27,4 +29,5 @@ const fairlaunch = () => {
   );
 };
 
+// EXPORT ===========
 export default fairlaunch;

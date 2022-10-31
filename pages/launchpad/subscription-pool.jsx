@@ -1,5 +1,4 @@
-import React from "react";
-import SubscriptionPoolForm from "../../components/DutchAuctionForm";
+import {SubscriptionPoolForm} from "../../components/";
 
 const StepItem = ({ title, subtitle, number }) => (
   <div className="flex w-full">

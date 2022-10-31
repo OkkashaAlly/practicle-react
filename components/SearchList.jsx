@@ -6,7 +6,7 @@ import {
   RiNotification4Line,
 } from "react-icons/ri";
 
-import Button from "./shared/Button";
+import {Button} from "./";
 
 // ================================
 // FORMIK CONTAINER COMPONENT =====

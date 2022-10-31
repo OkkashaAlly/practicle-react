@@ -1,7 +1,7 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "./FormikControl";
-import InputNote from "./shared/InputNote";
+import { InputNote } from "./";
 
 // ================================
 // FORMIK CONTAINER COMPONENT =====

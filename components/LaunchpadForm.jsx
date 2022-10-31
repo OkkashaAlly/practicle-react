@@ -14,8 +14,7 @@ import {
 } from "react-icons/ri";
 
 import FormikControl from "./FormikControl";
-import Button from "./shared/Button";
-import InputNote from "./shared/InputNote";
+import { Button, InputNote } from "./";
 
 // ================================
 // FORMIK CONTAINER COMPONENT =====
