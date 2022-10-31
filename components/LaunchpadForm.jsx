@@ -10,7 +10,7 @@ import {
   RiTwitterLine,
   RiInstagramLine,
   RiDiscordLine,
-  RiRedditLine
+  RiRedditLine,
 } from "react-icons/ri";
 
 import FormikControl from "./FormikControl";
@@ -70,6 +70,7 @@ const LaunchpadForm = ({ page, setPage }) => {
 
   const handleSubmit = (values, submitProps) => {
     console.log("Form values: ", values);
+
     submitProps.setSubmitting(false);
     submitProps.resetForm();
     setPage(1);
@@ -88,9 +89,14 @@ const LaunchpadForm = ({ page, setPage }) => {
           {page === 1 && <Step1 formik={formik} />}
           {page === 2 && <Step2 formik={formik} />}
           {page === 3 && <Step3 formik={formik} />}
+          {page === 4 && <Step4 formik={formik} />}
 
           {/* buttons  */}
-          <div className="flex gap-3">
+          <div
+            className={`flex gap-3 justify-center ${
+              !(formik.dirty && formik.isValid) ? "flex-col sm:flex-row " : ""
+            }`}
+          >
             {page > 1 && (
               <Button
                 text={"previous"}
@@ -104,8 +110,15 @@ const LaunchpadForm = ({ page, setPage }) => {
 
             {/* submit  */}
             {page === 4 && (
-              <div className="">
-                <Button type="submit" text={"submit"} />
+              <div className={`flex items-center `}>
+                {console.log(formik)}
+                {!(formik.dirty && formik.isValid) ? (
+                  <span className="text-red-500 font-bold text-center">
+                    Please fill in all required fields/inputs to SUBMIT
+                  </span>
+                ) : (
+                  <Button type="submit" text={"submit"} />
+                )}
               </div>
             )}
           </div>
@@ -115,10 +128,25 @@ const LaunchpadForm = ({ page, setPage }) => {
   );
 };
 
+const Step4 = ({ formik }) => {
+  const formValues = Object.entries(formik.values);
+
+  return (
+    <div className="">
+      {formValues.map((value, i) => (
+        <div key={i} className="flex justify-between">
+          <span className="capitalize">{value[0]}</span>
+          <span className="text-pink">{value[1]}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Step3 = ({ formik }) => {
   return (
     <>
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         {/* loge  */}
         <div className="flex-1">
           <FormikControl
@@ -147,7 +175,7 @@ const Step3 = ({ formik }) => {
         </div>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         {/* Facebook  */}
         <div className="flex-1">
           <FormikControl
@@ -171,7 +199,7 @@ const Step3 = ({ formik }) => {
         </div>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         {/* Github  */}
         <div className="flex-1">
           <FormikControl
@@ -195,7 +223,7 @@ const Step3 = ({ formik }) => {
         </div>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         {/* Instagram  */}
         <div className="flex-1">
           <FormikControl
