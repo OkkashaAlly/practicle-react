@@ -1,8 +1,8 @@
+import Link from "next/link";
 
 const Home = () => {
   return (
     <div className="min-h-screen w-full pt-3 ">
-
       {/* page */}
       <div className="flex flex-col md:items-center ">
         {/* Protocol  */}
@@ -19,8 +19,8 @@ const Home = () => {
 
           {/* buttons  */}
           <div className="flex justify-center gap-4 my-6">
-            <Button action={_ => {}} text={"create now"} />
-            <Button action={_ => {}} text={"learn more"} />
+            <Button link={"/"} text={"create now"} />
+            <Button link={"/"} text={"learn more"} />
           </div>
 
           {/* items  */}
@@ -193,18 +193,15 @@ const ContentCard = ({ title, subtitle, img }) => {
   );
 };
 
-const Button = ({ styles = "primary", action, text }) => {
-  const primary =
-    "font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg";
-
+const Button = ({ text, link }) => {
   return (
-    <button
-      type="button"
-      onClick={action}
-      className={styles === "primary" ? primary : secondary}
-    >
-      {text}
-    </button>
+    <Link href={link}>
+      <span
+        className={`text-pink bg-[#3b0619] py-4 px-6 rounded-full capitalize shadow-lg hover:shadow-none text-base font-semibold  `}
+      >
+        {text}
+      </span>
+    </Link>
   );
 };
 
