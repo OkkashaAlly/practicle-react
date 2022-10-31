@@ -9,7 +9,7 @@ const Textarea = ({ label, name, placeholder }) => {
       </label>
       <Field
         as="textarea"
-        className="p-3 border border-black"
+        className="mt-1 p-2 flex-1 bg-neutral-700 border border-neutral-300 rounded focus:outline-rose-500"
         name={name}
         placeholder={placeholder}
       />
