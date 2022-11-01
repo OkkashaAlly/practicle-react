@@ -83,7 +83,7 @@ const SideBar = ({
     },
     {
       single: false,
-      text: "Airdrop",
+      text: "airdrop",
       icon: () => {
         return <RiGiftLine className="text-pink h-7 w-7" />;
       },
@@ -93,7 +93,7 @@ const SideBar = ({
           text: "Create Airdrop",
         },
         {
-          pathname: "/airdrop",
+          pathname: "/airdrop/list",
           text: "Airdrop List",
         },
       ],
