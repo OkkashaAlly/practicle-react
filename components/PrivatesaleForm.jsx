@@ -31,13 +31,6 @@ const PrivateSaleForm = ({ page, setPage }) => {
     firstFundReleaseForProject: "",
     fundVestingPeriodEachCycle: "",
     fundReleaseEachCycle: "",
-    hardcapTokensPerUser: "",
-    subscriptionRate: "",
-    listingRate: "",
-    router: "disabled",
-    liquidityPercent: "",
-    refundType: "refund",
-    liquidityLockTime: "",
     logoURL: "",
     website: "",
     github: "",
@@ -61,12 +54,7 @@ const PrivateSaleForm = ({ page, setPage }) => {
     firstFundReleaseForProject: Yup.string().required("Required"),
     fundVestingPeriodEachCycle: Yup.string().required("Required"),
     fundReleaseEachCycle: Yup.string().required("Required"),
-    hardcapTokensPerUser: Yup.string().required("Required"),
-    subscriptionRate: Yup.string().required("Required"),
-    router: Yup.string().required("Required"),
-    liquidityPercent: Yup.string().required("Required"),
-    refundType: Yup.string().required("Required"),
-    liquidityLockTime: Yup.string().required("Required"),
+
     logoURL: Yup.string().required("Required"),
     website: Yup.string().required("Required"),
     // github: Yup.string().required("Required"),
@@ -281,44 +269,6 @@ const Step2 = ({ formik }) => {
     {
       key: "Enabled",
       value: "enabled",
-    },
-  ];
-
-  const refundTypeOptions = [
-    {
-      key: "Refund",
-      value: "refund",
-    },
-    {
-      key: "Burn",
-      value: "burn",
-    },
-  ];
-
-  const routerOptions = [
-    {
-      key: "Select Router",
-      value: "",
-    },
-    {
-      key: "Pancakeswap",
-      value: "0x10ED43C718714eb63d5aA57B78B54704E256024E",
-    },
-    {
-      key: "ApeSwap",
-      value: "0xcF0feBd3f17CEf5b47b0cD257aCf6025c5BFf3b7",
-    },
-    {
-      key: "MDex",
-      value: "0xf400087A4c94c52C6540A325CB702DE3ee7CB37f",
-    },
-    {
-      key: "BiSwap",
-      value: "0x3a6d8cA21D1CF76F653A67577FA0D27453350dD8",
-    },
-    {
-      key: "KnightSwap",
-      value: "0x05E61E0cDcD2170a76F9568a110CEe3AFdD6c46f",
     },
   ];
 
