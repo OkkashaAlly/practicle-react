@@ -1,4 +1,6 @@
-import { FairlaunchForm } from "../../components/";
+import { useState } from "react";
+
+import { FairlaunchForm, FormSteps } from "../../components/";
 
 const StepItem = ({ title, subtitle, number }) => (
   <div className="flex w-full">
@@ -21,10 +23,18 @@ const StepItem = ({ title, subtitle, number }) => (
 // FAIR LAUNCH PAGE COMPONENT ====
 // ===============================
 const fairlaunch = () => {
+  const [page, setPage] = useState(1);
+
+  const step2 = {
+    title: "DeFi Launchpad Info",
+    sub: "Enter the launchpad information that you want to raise , that should be enter all details about your presale",
+  };
+
   return (
     <div>
       {/* form  */}
-      <FairlaunchForm />
+      <FormSteps step2={step2} active={page} />
+      <FairlaunchForm page={page} setPage={setPage} />
     </div>
   );
 };

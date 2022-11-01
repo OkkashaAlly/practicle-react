@@ -13,8 +13,7 @@ import {
   RiRedditLine,
 } from "react-icons/ri";
 
-import FormikControl from "./FormikControl";
-import { Button, InputNote } from "./";
+import { FormikControl, Button, InputNote } from "./";
 
 // ================================
 // FORMIK CONTAINER COMPONENT =====
