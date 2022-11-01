@@ -6,7 +6,7 @@ const me = () => {
       <div className="mb-4">
         <p>
           Connected as:{" "}
-          <span className="font-semibold">
+          <span className="font-semibold break-all">
             0x87488094CD0F9332f2f80d2e0Bd2af1B3971a35d
           </span>
         </p>
