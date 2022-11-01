@@ -19,6 +19,7 @@
       "@/app/*" : ["app/*"],
       "@/layout/*" : ["layout/*"],
       "@/components/*" : ["components/*"],
+      "@/global/*" : ["global/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.jsx", "pages/_app.jsx", "pages/index.jsx"],

@@ -3,9 +3,13 @@ import Layout from "../layout";
 // styling
 import "../styles/globals.css";
 
+// imports
+import store from "@/global/store";
+import { Provider } from "react-redux";
+
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <>
+    <Provider store={store}>
       <Head>
         <title>CryptoPad</title>
         <meta name="title" content="Metarootz — List, Trade and Earn" />
@@ -14,7 +18,7 @@ const MyApp = ({ Component, pageProps }) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </Provider>
   );
 };
 
