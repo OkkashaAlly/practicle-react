@@ -34,3 +34,7 @@ Handle on hover
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(220, 50, 50) !important;
 } */
+
+.pageHeight {
+  height: calc(100vh - 79px);
+}

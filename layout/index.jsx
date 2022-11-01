@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
     "overflow-y-auto md:scrollbar-thin md:scrollbar-thumb-pink md:scrollbar-thumb-rounded-full md:scrollbar-track-rose-200";
 
   return (
-    <div className={`bg-ban w-full h-screen ${scrollBarStyle}`}>
+    <div className={`bg-ban w-full h-screen overflow-hidden`}>
       <Header
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
         />
         <div className={`flex-1 ${
           sidebarOpen ? "w-52" : "w-52"
-        } min-h-screen text-neutral-300 w-full`}>
+        } pageHeight text-neutral-300 w-full ${scrollBarStyle}`}>
           <TopBar />
           <div className="p-4 md:p-8 lg:px-10">{children}</div>
         </div>

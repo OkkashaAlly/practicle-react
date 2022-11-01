@@ -79,19 +79,19 @@ const Account = () => {
     },
     {
       name: "matic",
-      icon: <Image src={polygonIcon} width={20} height={20} />,
+      icon: <Image  src={polygonIcon} width={30} height={30} />,
     },
     {
       name: "avalanche",
-      icon: <Image src={avalancheIcon} width={20} height={20} />,
+      icon: <Image  src={avalancheIcon} width={30} height={30} />,
     },
     {
       name: "fantom",
-      icon: <Image src={fantomIcon} width={20} height={20} />,
+      icon: <Image  src={fantomIcon} width={30} height={30} />,
     },
     {
       name: "cronos",
-      icon: <Image src={cronosIcon} width={20} height={20} />,
+      icon: <Image  src={cronosIcon} width={30} height={30} />,
     },
   ];
 
@@ -183,7 +183,7 @@ const Modal = ({ handleClose, show, children }) => {
         show ? " block " : " hidden "
       } fixed top-0 left-0 w-full h-full text-neutral-100 bg-neutral-500 bg-opacity-60 backdrop-blur-lg backdrop-filter z-10`}
     >
-      <section className="p-4 fixed top-[50%] -translate-x-[50%] left-[50%] -translate-y-[50%] md:w-[50%] bg-neutral-700 rounded-lg z-10">
+      <section className="p-4 fixed top-[50%] -translate-x-[50%] left-[50%] -translate-y-[50%] md:w-[50%] w-[80%] bg-neutral-700 rounded-lg z-10">
         <div className="flex justify-between items-center mb-3">
           <p className="text-lg font-semibold">Choose a network</p>
           <button

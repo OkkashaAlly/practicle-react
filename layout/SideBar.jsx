@@ -13,6 +13,9 @@ import {
   RiGiftLine,
 } from "react-icons/ri";
 
+const scrollBarStyle =
+    "overflow-y-auto scrollbar-thin scrollbar-thumb-pink scrollbar-thumb-rounded-full scrollbar-track-rose-200";
+
 // import { SiBinance as Binance } from "react-icons/si";
 
 const SideBar = ({
@@ -124,13 +127,11 @@ const SideBar = ({
     },
   ];
 
-  const scrollBarStyle =
-    "overflow-y-auto scrollbar-thin scrollbar-thumb-pink scrollbar-thumb-rounded-full scrollbar-track-rose-200";
-
+  
   return (
     <>
       <aside
-        className={`h-screen ${
+        className={`pageHeight ${
           sidebarOpen ? "w-52" : "w-18"
         } border-r border-neutral-600  animation-300 hidden md:block ${scrollBarStyle}`}
       >
@@ -272,7 +273,7 @@ const MobileNav = ({
     <aside
       className={`absolute top-0 ${
         mobileMenu ? "left-0" : "-left-[70%]"
-      } text-white bg-neutral-500 bg-opacity-60 backdrop-blur-xl backdrop-filter bg-clip-padding z-20 w-[70%] min-h-screen h-full duration-300`}
+      } text-white ${scrollBarStyle} bg-neutral-500 bg-opacity-60 backdrop-blur-xl backdrop-filter bg-clip-padding z-20 w-[70%] pageHeight duration-300`}
     >
       <nav className="">
         {navLinks.map((link, i) => (
