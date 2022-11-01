@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-import { FormikControl, InputNote } from "./";
+import { FormikControl, InputNote, Button } from "./";
 
 // ================================
 // FORMIK CONTAINER COMPONENT =====
@@ -169,12 +169,7 @@ const StandardControls = ({ handleSubmit }) => {
             placeholder={"Ex: 18"}
           />
 
-          <button
-            className="w-40 font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg"
-            type="submit"
-          >
-            create
-          </button>
+          <Button type="submit" text={"create"} />
         </Form>
       )}
     </Formik>
@@ -260,12 +255,7 @@ const LiquidityControls = ({ handleSubmit, routerOptions }) => {
             />
           </div>
 
-          <button
-            className="w-40 font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg"
-            type="submit"
-          >
-            create
-          </button>
+          <Button type="submit" text={"create"} />
         </Form>
       )}
     </Formik>
@@ -376,12 +366,7 @@ const BabyControls = ({ handleSubmit, routerOptions }) => {
             />
           </div>
 
-          <button
-            className="w-40 font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg"
-            type="submit"
-          >
-            create
-          </button>
+          <Button type="submit" text={"create"} />
         </Form>
       )}
     </Formik>
@@ -482,12 +467,7 @@ const BuybackControls = ({ handleSubmit, routerOptions }) => {
             />
           </div>
 
-          <button
-            className="w-40 font-bold py-3 px-4 bg-[#b13564] hover:bg-[#89244a] text-neutral-300 rounded-full capitalize text-lg"
-            type="submit"
-          >
-            create
-          </button>
+          <Button type="submit" text={"create"} />
         </Form>
       )}
     </Formik>
