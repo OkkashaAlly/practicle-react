@@ -148,7 +148,7 @@ const Step3 = ({ formik }) => {
     <>
       <div className="flex flex-col md:flex-row gap-4">
         {/* loge  */}
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col gap-3">
           <FormikControl
             control={"input"}
             label={"Logo URL"}
@@ -357,7 +357,7 @@ const Step2 = ({ formik }) => {
       {/* sub and list rate */}
       <div className="flex flex-col md:flex-row gap-4">
         {/* Input  */}
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col gap-3">
           <FormikControl
             control={"input"}
             label={"Subscription rate"}
@@ -394,7 +394,7 @@ const Step2 = ({ formik }) => {
           />
         </div>
 
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col gap-3">
           {/* Input  */}
           <FormikControl
             control={"input"}
