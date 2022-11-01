@@ -10,7 +10,7 @@ import {
   RiTelegramLine,
   RiTwitterLine,
   RiFacebookBoxLine,
-  RiGiftLine
+  RiGiftLine,
 } from "react-icons/ri";
 
 // import { SiBinance as Binance } from "react-icons/si";
@@ -72,7 +72,7 @@ const SideBar = ({
       },
       dropdowns: [
         {
-          pathname: "/private-sales",
+          pathname: "/private-sale/list",
           text: "private Sale list",
         },
         {
@@ -215,7 +215,8 @@ const NavItem = ({ item, sidebarOpen, setMobileMenu }) => {
       )}
       <div
         className={`p-3 px-4  cursor-pointer ${
-          router.pathname.includes(item.text) && "bg-rose-900 text-rose-200"
+          router.pathname.includes(item.text.replace(" ", "-")) &&
+          "bg-rose-900 text-rose-200"
         } hover:bg-neutral-700 text-neutral-300 `}
         onClick={_ => {
           setDropdownOpen(!dropdownOpen);
