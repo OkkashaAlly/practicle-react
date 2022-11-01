@@ -28,6 +28,16 @@ const FairlaunchForm = ({ page, setPage }) => {
     router: "",
     liquidity: "",
     liquidityLockup: "",
+    logoURL: "",
+    website: "",
+    github: "",
+    telegram: "",
+    facebook: "",
+    twitter: "",
+    instagram: "",
+    discord: "",
+    reddit: "",
+    description: "",
   };
 
   const validationSchema = Yup.object({
@@ -39,6 +49,8 @@ const FairlaunchForm = ({ page, setPage }) => {
     router: Yup.string().required("Required"),
     liquidity: Yup.string().required("Required"),
     liquidityLockup: Yup.string().required("Required"),
+    logoURL: Yup.string().required("Required"),
+    website: Yup.string().required("Required"),
   });
 
   const handleSubmit = (values, submitProps) => {
@@ -47,6 +59,8 @@ const FairlaunchForm = ({ page, setPage }) => {
     submitProps.setSubmitting(false);
     submitProps.resetForm();
     setPage(1);
+
+    alert('Successfully created fairlaunch launchpad')
   };
 
   /////////////////
@@ -103,6 +117,145 @@ const FairlaunchForm = ({ page, setPage }) => {
 
 ///////////////////////////
 // EXTENDED COMPONETS /////
+const Step4 = ({ formik }) => {
+  const formValues = Object.entries(formik.values);
+
+  return (
+    <div className="">
+      {formValues.map((value, i) => (
+        <div key={i} className="flex justify-between">
+          <span className="capitalize">{value[0]}</span>
+          <span className="text-pink">{value[1]}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const Step3 = ({ formik }) => {
+  return (
+    <>
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* loge  */}
+        <div className="flex-1 flex flex-col gap-3">
+          <FormikControl
+            control={"input"}
+            label={"Logo URL"}
+            type={"text"}
+            name={"logoURL"}
+            icon={<RiImageAddLine className="h-5 w-5" />}
+          />
+
+          <InputNote
+            note={`URL must end with a supported image extension png, jpg, jpeg or gif.`}
+            styles={"mt-0"}
+          />
+        </div>
+
+        <div className="flex-1">
+          {/* website  */}
+          <FormikControl
+            control={"input"}
+            label={"Website"}
+            type={"text"}
+            name={"website"}
+            icon={<RiGlobalLine className="h-5 w-5" />}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* Facebook  */}
+        <div className="flex-1">
+          <FormikControl
+            control={"input"}
+            label={"Facebook"}
+            type={"text"}
+            name={"facebook"}
+            icon={<RiFacebookCircleLine className="h-5 w-5" />}
+          />
+        </div>
+
+        <div className="flex-1">
+          {/* Twitter  */}
+          <FormikControl
+            control={"input"}
+            label={"Twitter"}
+            type={"text"}
+            name={"twitter"}
+            icon={<RiTwitterLine className="h-5 w-5" />}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* Github  */}
+        <div className="flex-1">
+          <FormikControl
+            control={"input"}
+            label={"Github"}
+            type={"text"}
+            name={"github"}
+            icon={<RiGithubLine className="h-5 w-5" />}
+          />
+        </div>
+
+        <div className="flex-1">
+          {/* website  */}
+          <FormikControl
+            control={"input"}
+            label={"Telegram"}
+            type={"text"}
+            name={"telegram"}
+            icon={<RiTelegramLine className="h-5 w-5" />}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* Instagram  */}
+        <div className="flex-1">
+          <FormikControl
+            control={"input"}
+            label={"Instagram"}
+            type={"text"}
+            name={"instagram"}
+            icon={<RiInstagramLine className="h-5 w-5" />}
+          />
+        </div>
+
+        <div className="flex-1">
+          {/* discord  */}
+          <FormikControl
+            control={"input"}
+            label={"Discord"}
+            type={"text"}
+            name={"discord"}
+            icon={<RiDiscordLine className="h-5 w-5" />}
+          />
+        </div>
+      </div>
+
+      {/* reddit  */}
+      <FormikControl
+        control={"input"}
+        label={"Reddit"}
+        type={"text"}
+        name={"reddit"}
+        icon={<RiRedditLine className="h-5 w-5" />}
+      />
+
+      {/* Description  */}
+      <FormikControl
+        control={"textarea"}
+        label={"Description"}
+        type={"text"}
+        name={"description"}
+      />
+    </>
+  );
+};
+
 const Step2 = ({ formik }) => {
   const routerOptions = [
     {

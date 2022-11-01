@@ -72,6 +72,8 @@ const LaunchpadForm = ({ page, setPage }) => {
     submitProps.setSubmitting(false);
     submitProps.resetForm();
     setPage(1);
+
+    alert('Successfully created fairlaunch launchpad')
   };
 
   /////////////////
