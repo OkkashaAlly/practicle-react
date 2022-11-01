@@ -12,7 +12,7 @@ const Input = ({ label, type, name, placeholder, icon }) => {
         {icon && <span className=" z-10 absolute left-3">{icon}</span>}
 
         <Field
-          className={`${icon && 'pl-12'} p-2 flex-1 bg-neutral-700 border border-neutral-300 rounded focus:outline-rose-500`}
+          className={`${icon && 'pl-10'} p-2 flex-1 bg-neutral-700 border border-neutral-300 rounded focus:outline-rose-500`}
           type={type}
           name={name}
           placeholder={placeholder}
