@@ -24,13 +24,13 @@ input[type="radio"]:checked + label {
 /* SCROLLBAR  */
 /* width */
 
-/* Handle */
+/* Handle
 ::-webkit-scrollbar-thumb {
   background: red !important;
   border-radius: 50px;
 }
 
-/* Handle on hover */
+Handle on hover
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(220, 50, 50) !important;
-}
+} */

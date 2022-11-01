@@ -123,35 +123,16 @@ const SideBar = ({
       },
     },
   ];
-  //   {
-  //     pathname: "/",
-  //     text: "Home",
-  //     icon: () => {
-  //       return <RiHome3Line className="text-pink h-7 w-7" />;
-  //     },
-  //   },
-  //   {
-  //     pathname: "/launchpad",
-  //     text: "launchpad",
-  //     icon: () => {
-  //       return <RiRocketLine className="text-pink h-7 w-7" />;
-  //     },
-  //   },
-  //   {
-  //     pathname: "/private-sale",
-  //     text: "Private sale",
-  //     icon: () => {
-  //       return <RiShieldKeyholeLine className="text-pink h-7 w-7" />;
-  //     },
-  //   },
-  // ];
+
+  const scrollBarStyle =
+    "overflow-y-auto scrollbar-thin scrollbar-thumb-pink scrollbar-thumb-rounded-full scrollbar-track-rose-200";
 
   return (
     <>
       <aside
-        className={`min-h-screen ${
+        className={`h-screen ${
           sidebarOpen ? "w-52" : "w-18"
-        } border-r border-neutral-600  animation-300 hidden md:block`}
+        } border-r border-neutral-600  animation-300 hidden md:block ${scrollBarStyle}`}
       >
         <nav className="">
           {navLinks.map((link, i) => (
