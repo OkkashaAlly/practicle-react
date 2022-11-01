@@ -2,6 +2,7 @@ export { default as DutchAuctionForm } from "./DutchAuctionForm";
 export { default as FairlaunchForm } from "./FairlaunchForm";
 export { default as FormikControl } from "./FormikControl";
 export { default as LaunchpadForm } from "./LaunchpadForm";
+export { default as PrivateSaleForm} from "./PrivatesaleForm";
 export { default as SearchList } from "./SearchList";
 export { default as SubscriptionPoolForm } from "./SubscriptionPoolForm";
 export { default as TokenForm } from "./TokenForm";

@@ -10,6 +10,7 @@ import {
   RiTelegramLine,
   RiTwitterLine,
   RiFacebookBoxLine,
+  RiGiftLine
 } from "react-icons/ri";
 
 // import { SiBinance as Binance } from "react-icons/si";
@@ -71,18 +72,35 @@ const SideBar = ({
       },
       dropdowns: [
         {
-          pathname: "/private-list",
-          text: "private list",
+          pathname: "/private-sales",
+          text: "private Sale list",
         },
         {
-          pathname: "/private-sale",
-          text: "private sale",
+          pathname: "/private-sale/create",
+          text: "Create private sale",
+        },
+      ],
+    },
+    {
+      single: false,
+      text: "Airdrop",
+      icon: () => {
+        return <RiGiftLine className="text-pink h-7 w-7" />;
+      },
+      dropdowns: [
+        {
+          pathname: "/airdrop/create",
+          text: "Create Airdrop",
+        },
+        {
+          pathname: "/airdrop",
+          text: "Airdrop List",
         },
       ],
     },
     {
       single: true,
-      pathname: "/Telegram",
+      pathname: "https://telegram.org",
       text: "Telegram",
       icon: () => {
         return <RiTelegramLine className="text-pink h-7 w-7" />;
@@ -90,7 +108,7 @@ const SideBar = ({
     },
     {
       single: true,
-      pathname: "/Twitter",
+      pathname: "https://twitter.com",
       text: "Twitter",
       icon: () => {
         return <RiTwitterLine className="text-pink h-7 w-7" />;
@@ -98,7 +116,7 @@ const SideBar = ({
     },
     {
       single: true,
-      pathname: "/Facebook",
+      pathname: "https://facebook.com",
       text: "Facebook",
       icon: () => {
         return <RiFacebookBoxLine className="text-pink h-7 w-7" />;

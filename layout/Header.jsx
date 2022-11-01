@@ -58,7 +58,7 @@ const Header = ({ sidebarOpen, setSidebarOpen, mobileMenu, setMobileMenu }) => (
 ////////////////////////////
 // EXTENDED COMPONENTS /////
 const Brand = () => (
-  <h6 className="text-2xl font-bold text-white">Metarootz</h6>
+  <h6 className="text-2xl font-bold text-white">CryptoPad</h6>
 );
 
 const Account = () => {
