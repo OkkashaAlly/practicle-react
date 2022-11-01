@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const scrollBarStyle =
-    "overflow-y-auto scrollbar-thin scrollbar-thumb-pink scrollbar-thumb-rounded-full scrollbar-track-rose-200";
+    "overflow-y-auto md:scrollbar-thin md:scrollbar-thumb-pink md:scrollbar-thumb-rounded-full md:scrollbar-track-rose-200";
 
   return (
     <div className={`bg-ban w-full h-screen ${scrollBarStyle}`}>
