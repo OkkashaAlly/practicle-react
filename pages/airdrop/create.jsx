@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { LaunchpadForm, } from "../../components/";
+import { AirdropForm } from "../../components/";
 
 // ==========================
 // CREATE PAGE COMPONENT ====
@@ -8,15 +8,12 @@ import { LaunchpadForm, } from "../../components/";
 const create = () => {
   const [page, setPage] = useState(1);
 
-  
-
   // ================
   // RETURN =========
   return (
     <div>
       {/* form  */}
-      
-      <LaunchpadForm page={page} setPage={setPage} />
+      <AirdropForm page={page} setPage={setPage} />
     </div>
   );
 };

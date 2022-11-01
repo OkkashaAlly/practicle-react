@@ -6,6 +6,7 @@ export { default as PrivateSaleForm} from "./PrivatesaleForm";
 export { default as SearchList } from "./SearchList";
 export { default as SubscriptionPoolForm } from "./SubscriptionPoolForm";
 export { default as TokenForm } from "./TokenForm";
+export { default as AirdropForm } from "./AirdropForm";
 
 // SHARED
 export { default as Button } from "./shared/Button";

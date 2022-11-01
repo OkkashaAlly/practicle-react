@@ -14,7 +14,7 @@ import {
 } from "react-icons/ri";
 
 const scrollBarStyle =
-    "overflow-y-auto scrollbar-thin scrollbar-thumb-pink scrollbar-thumb-rounded-full scrollbar-track-rose-200";
+  "overflow-y-auto scrollbar-thin scrollbar-thumb-pink scrollbar-thumb-rounded-full scrollbar-track-rose-200";
 
 // import { SiBinance as Binance } from "react-icons/si";
 
@@ -42,9 +42,10 @@ const SideBar = ({
       },
       dropdowns: [
         {
-          pathname: "/launchpad/list",
-          text: "launchpad list",
+          pathname: "/launchpad/token",
+          text: "create token",
         },
+
         {
           pathname: "/launchpad/create",
           text: "create launchpad",
@@ -62,8 +63,8 @@ const SideBar = ({
           text: "create subscription",
         },
         {
-          pathname: "/launchpad/token",
-          text: "create token",
+          pathname: "/launchpad/list",
+          text: "launchpad list",
         },
       ],
     },
@@ -75,12 +76,12 @@ const SideBar = ({
       },
       dropdowns: [
         {
-          pathname: "/private-sale/list",
-          text: "private Sale list",
-        },
-        {
           pathname: "/private-sale/create",
           text: "Create private sale",
+        },
+        {
+          pathname: "/private-sale/list",
+          text: "private Sale list",
         },
       ],
     },
@@ -127,7 +128,6 @@ const SideBar = ({
     },
   ];
 
-  
   return (
     <>
       <aside
