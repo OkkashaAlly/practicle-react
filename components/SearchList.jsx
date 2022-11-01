@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Link from "next/link";
+
 import {
   RiHeartLine,
   RiHeartFill,
@@ -6,7 +8,7 @@ import {
   RiNotification4Line,
 } from "react-icons/ri";
 
-import {Button} from "./";
+import { Button, ButtonIcon } from "./";
 
 // ================================
 // FORMIK CONTAINER COMPONENT =====
@@ -208,21 +210,15 @@ const CardList = () => {
             value={notify}
             action={_ => setNotify(!notify)}
           />
-          <Button text={"view"} action={_ => {}} />
+
+          <Link href={"/launchpad/123"}>
+            <Button text={"view"} action={_ => {}} />
+          </Link>
         </div>
       </div>
     </div>
   );
 };
-
-const ButtonIcon = ({ icon1, icon2, value, action }) => (
-  <span
-    onClick={action}
-    className="rounded-full flex items-center justify-center bg-stone-900 p-2"
-  >
-    {value ? icon1 : icon2}
-  </span>
-);
 
 
 

@@ -17,3 +17,4 @@ export { default as RadioButtons } from "./shared/RadioButtons";
 export { default as Select } from "./shared/Select";
 export { default as Textarea } from "./shared/Textarea";
 export { default as TextError } from "./shared/TextError";
+export { default as ButtonIcon } from "./shared/ButtonIcon";
