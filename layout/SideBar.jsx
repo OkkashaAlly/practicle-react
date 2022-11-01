@@ -72,7 +72,7 @@ const SideBar = ({
       },
       dropdowns: [
         {
-          pathname: "/private-sales",
+          pathname: "/privatesales",
           text: "private Sale list",
         },
         {
