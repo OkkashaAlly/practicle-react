@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import blockchainSlice from "./slice/blockchainSlice";
 
-const store = configureStore ({
+export const store = configureStore ({
     reducer: {
         blockchain: blockchainSlice
     },
@@ -15,4 +15,3 @@ const store = configureStore ({
         })
 })
 
-export default store;

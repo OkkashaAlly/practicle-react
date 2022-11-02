@@ -12,10 +12,10 @@ const Home = () => (
         <CommonContent
           title={"The Launchpad Protocol for Everyone!"}
           sub1={
-            "Metarootz helps everyone to create their own tokens and token sales in few seconds."
+            "CryptoPad helps everyone to create their own tokens and token sales in few seconds."
           }
           sub2={
-            " Tokens created on Metarootz will be verified and published on explorer websites."
+            " Tokens created on CryptoPad will be verified and published on explorer websites."
           }
         />
 
@@ -80,7 +80,7 @@ const Home = () => (
               img
               title={"Branding"}
               subtitle={
-                "Adding logo, social links, description, listing on PinkSale."
+                "Adding logo, social links, description, listing on CryptSale."
               }
             />
             <ContentCard
@@ -94,14 +94,14 @@ const Home = () => (
               img
               title={"Community"}
               subtitle={
-                "Promote your launchpad to thousands of buyers on PinkSale."
+                "Promote your launchpad to thousands of buyers on CryptSale."
               }
             />
             <ContentCard
               img
               title={"Locking"}
               subtitle={
-                "Lock your liquidity to PinkSwap, PancakeSwap after presale."
+                "Lock your liquidity to CryptSwap, PancakeSwap after presale."
               }
             />
           </div>
@@ -113,7 +113,7 @@ const Home = () => (
         <CommonContent
           title={"A Growing Protocol Ecosystem."}
           sub1={
-            "We build a suite of tools for the world of decentralized finance. PinkMoon, PinkSale, PinkElon PinkLock, PinkSwap, we Pink everything!"
+            "We build a suite of tools for the world of decentralized finance. CryptMoon, CryptSale, CryptElon CryptLock, CryptSwap, we Crypt everything!"
           }
         />
 
@@ -123,49 +123,49 @@ const Home = () => (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4">
             <ContentCard
               img
-              title={"PinkMoon"}
+              title={"CryptMoon"}
               subtitle={"The best launchpad for professional teams"}
             />
             <ContentCard
               img
-              title={"PinkSale"}
+              title={"CryptSale"}
               subtitle={"Launch a token sale with a few clicks"}
             />
             <ContentCard
               img
-              title={"PinkSwap"}
-              subtitle={"Swap tokens and farming $PinkS."}
+              title={"CryptSwap"}
+              subtitle={"Swap tokens and farming $CryptS."}
             />
             <ContentCard
               img
-              title={"PinkLock"}
-              subtitle={"Locking liquidity on PinkSwap."}
+              title={"CryptLock"}
+              subtitle={"Locking liquidity on CryptSwap."}
             />
           </div>
           {/* row  */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4">
             <ContentCard
               img
-              title={"PinkElon"}
-              subtitle={"The first meme token on PinkMoon."}
+              title={"CryptElon"}
+              subtitle={"The first meme token on CryptMoon."}
             />
             <ContentCard
               img
-              title={"PinkWallet"}
+              title={"CryptWallet"}
               subtitle={"Crypto wallet, buy, store, exchange & earn."}
             />
             <ContentCard
               img
               title={"Community"}
               subtitle={
-                "Promote your launchpad to thousands of buyers on PinkSale."
+                "Promote your launchpad to thousands of buyers on CryptSale."
               }
             />
             <ContentCard
               img
               title={"Locking"}
               subtitle={
-                "Lock your liquidity to PinkSwap, PancakeSwap after presale."
+                "Lock your liquidity to CryptSwap, PancakeSwap after presale."
               }
             />
           </div>
@@ -196,7 +196,7 @@ const Button = ({ text, link }) => {
   return (
     <Link href={link}>
       <span
-        className={`text-pink bg-[#3b0619] py-4 px-6 rounded-full capitalize shadow-lg hover:shadow-none text-base font-semibold  `}
+        className={`text-Crypt bg-[#3b0619] py-4 px-6 rounded-full capitalize shadow-lg hover:shadow-none text-base font-semibold  `}
       >
         {text}
       </span>

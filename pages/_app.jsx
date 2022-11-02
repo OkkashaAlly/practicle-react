@@ -4,7 +4,7 @@ import Layout from "../layout";
 import "../styles/globals.css";
 
 // imports
-import store from "@/global/store";
+import { store } from "@/global/store";
 import { Provider } from "react-redux";
 
 const MyApp = ({ Component, pageProps }) => {

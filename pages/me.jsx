@@ -1,21 +1,40 @@
 import { Button } from "../components/";
-
+import { web3Connect, disconnect } from "../global/utils/connect";
+import { updateData } from "../global/slice/blockchainSlice"
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 const me = () => {
+  const dispatch = useDispatch()
+  const blockchain = useSelector((state) => state.blockchain)
+  const connect = _ => {
+    if(blockchain.account) {
+      disconnect().then((data) => dispatch(updateData(data)))
+    } else {
+      web3Connect().then((data) => dispatch(updateData(data)))
+    }
+  }
+  
   return (
     <div className="bg-tan rounded-lg p-6 px-8">
       <div className="mb-4">
-        <p>
-          Connected as:{" "}
+        {blockchain.account == null ? <><Button action={_ => {connect()}} styles="secondary" text={"Connect"} /></> : <>
+        <div>
+          <p>
+          Connected as: 
           <span className="font-semibold break-all">
-            0x87488094CD0F9332f2f80d2e0Bd2af1B3971a35d
+            {blockchain.account}
           </span>
         </p>
-        <p className="text-pink text-lg">0.001322 BNB</p>
+        <p className="text-pink text-lg">{blockchain.balance} BNB</p>
+        </div>
+        <div className="">
+        <Button action={_ => {connect()}} styles="secondary" text={"logout"} />
+      </div>
+        </>}
+        
       </div>
 
-      <div className="">
-        <Button action={_ => {}} styles="secondary" text={"logout"} />
-      </div>
+      
     </div>
   );
 };

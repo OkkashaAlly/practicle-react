@@ -482,7 +482,7 @@ const CommonControls = () => (
       label={"Token Name"}
       type={"text"}
       name={"tokenName"}
-      placeholder={"Ex: Kripte"}
+      placeholder={"Ex: Crypt"}
     />
     {/* Input  */}
     <FormikControl

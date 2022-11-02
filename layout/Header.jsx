@@ -11,6 +11,10 @@ import avalancheIcon from "../assets/avalanche-avax-logo.svg";
 import fantomIcon from "../assets/fantom-ftm-logo.svg";
 import cronosIcon from "../assets/cronos-cro-logo.svg";
 
+// imports
+import { web3Connect, disconnect } from '../global/utils/connect';
+import { updateData } from "@/global/slice/blockchainSlice";
+import { useDispatch, useSelector } from "react-redux";
 // ===============================
 // HEADER LAYOUT COMPONENTS ======
 // ===============================
@@ -68,6 +72,15 @@ const Brand = () => (
 );
 
 const Account = () => {
+  const dispatch = useDispatch()
+  const blockchain = useSelector((state) => state.blockchain)
+  const connect = _ => {
+    if(blockchain.account) {
+      disconnect().then((data) => dispatch(updateData(data)))
+    } else {
+      web3Connect().then((data) => dispatch(updateData(data)))
+    }
+  }
   const availableNetworks = [
     {
       name: "bsc mainnet",
@@ -101,6 +114,10 @@ const Account = () => {
   });
 
   const [showModal, setShowModal] = useState(false);
+  const truncate = (input, len) =>
+    input.length > len
+      ? `${input.substring(0, len)}...${input.slice(-len + 1, input.len)}`
+      : input;
 
   return (
     <>
@@ -112,10 +129,18 @@ const Account = () => {
             availableNetworks={availableNetworks}
           />
         </div>
-        <Address
-          address={"0x0efA...28CB"}
-          balance={{ amount: "0.0006", currency: "BNB" }}
-        />
+        {blockchain.account == null ? <><button
+            type="button"
+            className="bg-rose-500 text-neutral-100 p-2 px-3 rounded-lg"
+            onClick={connect()}
+          >
+            Connect
+          </button></> : <>
+          <Address
+          address={truncate(blockchain.account, 5)}
+          balance={{ amount: blockchain.balance, currency: "BNB" }}
+        /></>}
+        
       </div>
 
       <Modal show={showModal} handleClose={_ => setShowModal(false)}>
