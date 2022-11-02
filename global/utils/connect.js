@@ -28,11 +28,12 @@ export const web3Connect = async () => {
 
             const ethProvider = new ethers.providers.Web3Provider(provider);
 
-            await ethProvider.send("eth_requestAccounts", []);
+            //await ethProvider.send("eth_requestAccounts", []);
             const signer = ethProvider.getSigner()
             const account = await signer.getAddress()
-            let balance = await signer.getBalance()
-            balance /= 10 ** 18
+            let balanced = await signer.getBalance()
+            balanced /= 10 ** 18
+            let balance = await Number(balanced.toFixed(5))
 
 
             return {
