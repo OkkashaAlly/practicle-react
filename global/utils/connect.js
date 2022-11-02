@@ -4,7 +4,6 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import { ethers } from 'ethers';
 
 export const web3Connect = async () => {
-    let provider;
 
     const providerOptions = {
         walletconnect: {
@@ -22,27 +21,32 @@ export const web3Connect = async () => {
         cacheProvider: true,
         providerOptions
     })
+    const provider = await web3Modal.connect()
+    await web3Modal.toggleModal()
+    if (provider.chainId == 0x38) {
+        try {
 
-    try {
-        const provider = await web3Modal.connect()
-        await web3Modal.toggleModal()
-        const ethProvider = new ethers.providers.Web3Provider(provider);
+            const ethProvider = new ethers.providers.Web3Provider(provider);
 
-        await ethProvider.send("eth_requestAccounts", []);
-        const signer = ethProvider.getSigner()
-        const account = await signer.getAddress()
-        let balance = await signer.getBalance()
-        balance /= 10**18
-       
+            await ethProvider.send("eth_requestAccounts", []);
+            const signer = ethProvider.getSigner()
+            const account = await signer.getAddress()
+            let balance = await signer.getBalance()
+            balance /= 10 ** 18
 
-        return {
-            account,
-            provider,
-            balance
+
+            return {
+                account,
+                provider,
+                balance
+            }
+        } catch (err) {
+            console.log(err)
         }
-    } catch (err) {
-        console.log(err)
+    } else {
+        alert('connect to binance smart chain')
     }
+
 }
 
 export const disconnect = async () => {

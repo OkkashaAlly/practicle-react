@@ -74,7 +74,7 @@ const Brand = () => (
 const Account = () => {
   const dispatch = useDispatch()
   const blockchain = useSelector((state) => state.blockchain)
-  const connect = _ => {
+  const connect = () => {
     if(blockchain.account) {
       disconnect().then((data) => dispatch(updateData(data)))
     } else {
@@ -130,9 +130,10 @@ const Account = () => {
           />
         </div>
         {blockchain.account == null ? <><button
-            type="button"
             className="bg-rose-500 text-neutral-100 p-2 px-3 rounded-lg"
-            onClick={connect()}
+            onClick={() => {
+              connect()
+            }}
           >
             Connect
           </button></> : <>
