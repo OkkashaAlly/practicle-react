@@ -26,14 +26,15 @@ const LaunchpadForm = ({ page, setPage }) => {
     listingOptions: "autoListing",
     hardcapTokens: "",
     softcapTokens: "",
-    hardcapTokensPerUser: "",
-    subscriptionRate: "",
-    listingRate: "",
+    presaleRate: "",
+    minimumBuy: "",
+    maximum: "",
     whitelist: "disabled",
     router: "disabled",
     liquidityPercent: "",
     refundType: "refund",
-    liquidityLockTime: "",
+    listingRate: "",
+    liquidityLockup: "",
     logoURL: "",
     website: "",
     github: "",
@@ -52,14 +53,15 @@ const LaunchpadForm = ({ page, setPage }) => {
     feeOptions: Yup.string().required("Required"),
     hardcapTokens: Yup.string().required("Required"),
     softcapTokens: Yup.string().required("Required"),
-    hardcapTokensPerUser: Yup.string().required("Required"),
-    subscriptionRate: Yup.string().required("Required"),
-    listingRate: Yup.string().required("Required"),
+    presaleRate: Yup.string().required("Required"),
+    minimumBuy: Yup.string().required("Required"),
+    maximum: Yup.string().required("Required"),
     whitelist: Yup.string().required("Required"),
     router: Yup.string().required("Required"),
     liquidityPercent: Yup.string().required("Required"),
     refundType: Yup.string().required("Required"),
-    liquidityLockTime: Yup.string().required("Required"),
+    listingRate: Yup.string().required("Required"),
+    liquidityLockup: Yup.string().required("Required"),
     logoURL: Yup.string().required("Required"),
     website: Yup.string().required("Required"),
     // github: Yup.string().required("Required"),
@@ -73,7 +75,7 @@ const LaunchpadForm = ({ page, setPage }) => {
     submitProps.resetForm();
     setPage(1);
 
-    alert('Successfully created fairlaunch launchpad')
+    alert("Successfully created fairlaunch launchpad");
   };
 
   /////////////////
@@ -322,28 +324,15 @@ const Step2 = ({ formik }) => {
       {/* Input  */}
       <FormikControl
         control={"input"}
-        label={"Hardcap Tokens"}
+        label={"Presale rate"}
         type={"number"}
-        name={"hardcapTokens"}
-        placeholder={"Ex: 1000"}
+        name={"presaleRate"}
+        placeholder={"Ex: 0"}
       />
 
-      {/* Input  */}
-      <FormikControl
-        control={"input"}
-        label={"Softcap Tokens"}
-        type={"number"}
-        name={"softcapTokens"}
-        placeholder={"Ex: 1000"}
-      />
-
-      {/* Input  */}
-      <FormikControl
-        control={"input"}
-        label={"Hardcap Tokens per user"}
-        type={"number"}
-        name={"hardcapTokensPerUser"}
-        placeholder={"Ex: 1000"}
+      <InputNote
+        note={`If I spend 1 BNB how many tokens will I receive?`}
+        styles={"mt-0"}
       />
 
       {/* Radio  */}
@@ -354,31 +343,47 @@ const Step2 = ({ formik }) => {
         options={whitelistOptions}
       />
 
-      {/* sub and list rate */}
+      {/* soft & hard cap  */}
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* Input  */}
+        <FormikControl
+          control={"input"}
+          label={"Hardcap Tokens"}
+          type={"number"}
+          name={"hardcapTokens"}
+          placeholder={"Ex: 1000"}
+        />
+
+        {/* Input  */}
+        <FormikControl
+          control={"input"}
+          label={"Softcap Tokens"}
+          type={"number"}
+          name={"softcapTokens"}
+          placeholder={"Ex: 1000"}
+        />
+      </div>
+
+      {/* min and max buy */}
       <div className="flex flex-col md:flex-row gap-4">
         {/* Input  */}
         <div className="flex-1 flex flex-col gap-3">
           <FormikControl
             control={"input"}
-            label={"Subscription rate"}
+            label={"Minimum buy"}
             type={"number"}
-            name={"subscriptionRate"}
-            placeholder={"Ex: 1000"}
-          />
-
-          <InputNote
-            note={`If I spend 1 BNB how many tokens will I receive?`}
-            styles={"mt-0"}
+            name={"minimumBuy"}
+            placeholder={"Ex: 0"}
           />
         </div>
 
         {/* Input  */}
         <FormikControl
           control={"input"}
-          label={"Listing rate"}
+          label={"Maximum buy"}
           type={"number"}
-          name={"listingRate"}
-          placeholder={"Ex: 1000"}
+          name={"maximumBuy"}
+          placeholder={"Ex: 0"}
         />
       </div>
 
@@ -427,13 +432,22 @@ const Step2 = ({ formik }) => {
           {/* Input  */}
           <FormikControl
             control={"input"}
-            label={"Liquidity Lock Time (minutes)"}
+            label={"listing rate"}
             type={"number"}
-            name={"liquidityLockTime"}
-            placeholder={"Ex: 20"}
+            name={"listingRate"}
+            placeholder={"Ex: 0"}
           />
         </div>
       </div>
+
+      {/* locktime  */}
+      <FormikControl
+        control={"input"}
+        label={"Liquidity lockup (minutes)"}
+        type={"number"}
+        name={"liquidityLockup"}
+        placeholder={"Ex: 0"}
+      />
     </>
   );
 };
