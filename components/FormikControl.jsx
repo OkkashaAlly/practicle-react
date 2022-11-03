@@ -1,4 +1,4 @@
-import { Input, Textarea, Select, RadioButtons } from "./";
+import { Input, Textarea, Select, RadioButtons, DatePicker } from "./";
 
 // ================================
 // FORMIK CONTROL COMPONENT =======
@@ -20,6 +20,7 @@ const FormikControl = ({ control, ...rest }) => {
     case "checkbox":
       break;
     case "date":
+      <DatePicker {...rest} />;
       break;
 
     default:
