@@ -10,8 +10,7 @@ const DatePicker = ({ label, name, ...rest }) => {
       <label htmlFor={name} className={"capitalize"}>
         {label}:
       </label>
-
-      <Field className="p-3 border border-black" name={name}>
+      <Field name={name}>
         {({ form, field }) => {
           const { setFieldValue } = form;
           const { value } = field;
@@ -22,8 +21,10 @@ const DatePicker = ({ label, name, ...rest }) => {
               {...field}
               {...rest}
               showTimeSelect
+              className="mt-1 p-2 flex-1 bg-neutral-700 border w-full border-neutral-300 rounded focus:outline-rose-500"
               selected={value}
-              onChange={val => setFieldValue(name, val)}
+              onChange={val => JSON.parse(JSON.stringify(setFieldValue(name, val)))}
+              placeholderText="Select a date"
             />
           );
         }}

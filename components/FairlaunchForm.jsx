@@ -27,6 +27,8 @@ const FairlaunchForm = ({ page, setPage }) => {
     softcap: "",
     router: "",
     liquidity: "",
+    startDate: null,
+    endDate: null,
     liquidityLockup: "",
     logoURL: "",
     website: "",
@@ -48,6 +50,8 @@ const FairlaunchForm = ({ page, setPage }) => {
     softcap: Yup.string().required("Required"),
     router: Yup.string().required("Required"),
     liquidity: Yup.string().required("Required"),
+    startDate: Yup.date().required("Required").nullable(),
+    endDate: Yup.date().required("Required").nullable(),
     liquidityLockup: Yup.string().required("Required"),
     logoURL: Yup.string().required("Required"),
     website: Yup.string().required("Required"),
@@ -60,7 +64,7 @@ const FairlaunchForm = ({ page, setPage }) => {
     submitProps.resetForm();
     setPage(1);
 
-    alert('Successfully created fairlaunch launchpad')
+    alert("Successfully created fairlaunch launchpad");
   };
 
   /////////////////
@@ -98,7 +102,7 @@ const FairlaunchForm = ({ page, setPage }) => {
             {/* submit  */}
             {page === 4 && (
               <div className={`flex items-center `}>
-                {console.log(formik)}
+                {/* {console.log(formik)} */}
                 {!(formik.dirty && formik.isValid) ? (
                   <span className="text-red-500 font-bold text-center">
                     Please fill in all required fields/inputs to SUBMIT
@@ -119,10 +123,22 @@ const FairlaunchForm = ({ page, setPage }) => {
 // EXTENDED COMPONETS /////
 const Step4 = ({ formik }) => {
   const formValues = Object.entries(formik.values);
+  const startDate = JSON.parse(JSON.stringify(formValues[7][1]));
+  const endDate = JSON.parse(JSON.stringify(formValues[8][1]));
+
+  const part1 = formValues.slice(0, 7);
+  const part2 = formValues.slice(9, -1);
+
+  const newValues = [
+    ...part1,
+    ...part2,
+    ["startdate", startDate],
+    ["endDate", endDate],
+  ];
 
   return (
     <div className="">
-      {formValues.map((value, i) => (
+      {newValues.map((value, i) => (
         <div key={i} className="flex justify-between">
           <span className="capitalize">{value[0]}</span>
           <span className="text-pink">{value[1]}</span>
@@ -326,6 +342,28 @@ const Step2 = ({ formik }) => {
       <InputNote
         note={`If I spend 1 BNB on how many tokens will I receive? Usually this amount is lower than presale rate to allow for a higher listing price on`}
       />
+
+      {/* Select start time & end time (UTC)* */}
+      <div className="flex flex-col md:flex-row  gap-4">
+        <div className="flex flex-1 flex-col gap-3">
+          <FormikControl
+            control={"date"}
+            label={"Start time (UTC)"}
+            name={"startDate"}
+          />
+          <InputNote
+            note={`The duration between start time and end time must be less than 10080 minutes`}
+          />
+        </div>
+
+        <div className="flex-1">
+          <FormikControl
+            control={"date"}
+            label={"End time (UTC)"}
+            name={"endDate"}
+          />
+        </div>
+      </div>
 
       <FormikControl
         control={"input"}
