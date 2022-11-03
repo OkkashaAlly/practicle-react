@@ -92,19 +92,19 @@ const Account = () => {
     },
     {
       name: "matic",
-      icon: <Image  src={polygonIcon} width={30} height={30} />,
+      icon: <Image alt="matic logo" src={polygonIcon} width={30} height={30} />,
     },
     {
       name: "avalanche",
-      icon: <Image  src={avalancheIcon} width={30} height={30} />,
+      icon: <Image alt="avalanche logo" src={avalancheIcon} width={30} height={30} />,
     },
     {
       name: "fantom",
-      icon: <Image  src={fantomIcon} width={30} height={30} />,
+      icon: <Image alt="fantom logo" src={fantomIcon} width={30} height={30} />,
     },
     {
       name: "cronos",
-      icon: <Image  src={cronosIcon} width={30} height={30} />,
+      icon: <Image alt="cronos logo" src={cronosIcon} width={30} height={30} />,
     },
   ];
 
