@@ -188,7 +188,7 @@ const StatusDetails = ({}) => {
 
   return (
     <div className="bg-tan p-4 md:p-6 rounded-lg">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-4">
         {statusDetails.map((detail, i) => (
           <div
             key={i}

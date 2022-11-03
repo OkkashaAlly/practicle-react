@@ -169,9 +169,12 @@ const Step4 = ({ formik }) => {
   return (
     <div className="">
       {newValues.map((value, i) => (
-        <div key={i} className="flex justify-between">
+        <div
+          key={i}
+          className="flex gap-4 justify-between py-2 border-b-[0.2px] border-neutral-700"
+        >
           <span className="capitalize">{value[0]}</span>
-          <span className="text-pink">{value[1]}</span>
+          <span className="text-pink break-all">{value[1]}</span>
         </div>
       ))}
     </div>

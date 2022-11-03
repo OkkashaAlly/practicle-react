@@ -34,6 +34,8 @@ const LaunchpadForm = ({ page, setPage }) => {
     liquidityPercent: "",
     refundType: "refund",
     listingRate: "",
+    startDate: null,
+    endDate: null,
     liquidityLockup: "",
     logoURL: "",
     website: "",
@@ -62,6 +64,8 @@ const LaunchpadForm = ({ page, setPage }) => {
     refundType: Yup.string().required("Required"),
     listingRate: Yup.string().required("Required"),
     liquidityLockup: Yup.string().required("Required"),
+    startDate: Yup.date().required("Required").nullable(),
+    endDate: Yup.date().required("Required").nullable(),
     logoURL: Yup.string().required("Required"),
     website: Yup.string().required("Required"),
     // github: Yup.string().required("Required"),
@@ -132,13 +136,30 @@ const LaunchpadForm = ({ page, setPage }) => {
 
 const Step4 = ({ formik }) => {
   const formValues = Object.entries(formik.values);
+  const startDate = JSON.parse(JSON.stringify(formValues[14][1]));
+  const endDate = JSON.parse(JSON.stringify(formValues[15][1]));
+
+  const part1 = formValues.slice(0, 14);
+  const part2 = formValues.slice(16, -1);
+
+  const newValues = [
+    ...part1,
+    ...part2,
+    ["startdate", startDate],
+    ["endDate", endDate],
+  ];
+
+  // console.log(formValues);
 
   return (
     <div className="">
-      {formValues.map((value, i) => (
-        <div key={i} className="flex justify-between">
+      {newValues.map((value, i) => (
+        <div
+          key={i}
+          className="flex gap-4 justify-between py-2 border-b-[0.2px] border-neutral-700"
+        >
           <span className="capitalize">{value[0]}</span>
-          <span className="text-pink">{value[1]}</span>
+          <span className="text-pink break-all">{value[1]}</span>
         </div>
       ))}
     </div>
@@ -436,6 +457,25 @@ const Step2 = ({ formik }) => {
             type={"number"}
             name={"listingRate"}
             placeholder={"Ex: 0"}
+          />
+        </div>
+      </div>
+
+      {/* Select start time & end time (UTC)* */}
+      <div className="flex flex-col md:flex-row  gap-4">
+        <div className="flex-1">
+          <FormikControl
+            control={"date"}
+            label={"Start time (UTC)"}
+            name={"startDate"}
+          />
+        </div>
+
+        <div className="flex-1">
+          <FormikControl
+            control={"date"}
+            label={"End time (UTC)"}
+            name={"endDate"}
           />
         </div>
       </div>
