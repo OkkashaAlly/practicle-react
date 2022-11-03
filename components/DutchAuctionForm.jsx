@@ -36,6 +36,8 @@ const DutchAuctionForm = ({ page, setPage }) => {
     router: "",
     refundType: "refund",
     liquidityLockTime: "",
+    startDate: null,
+    endDate: null,
     logoURL: "",
     website: "",
     github: "",
@@ -65,6 +67,8 @@ const DutchAuctionForm = ({ page, setPage }) => {
     router: Yup.string().required("Required"),
     refundType: Yup.string().required("Required"),
     liquidityLockTime: Yup.string().required("Required"),
+    startDate: Yup.date().required("Required").nullable(),
+    endDate: Yup.date().required("Required").nullable(),
     logoURL: Yup.string().required("Required"),
     website: Yup.string().required("Required"),
   });
@@ -125,7 +129,6 @@ const DutchAuctionForm = ({ page, setPage }) => {
                 {/* submit  */}
                 {page === 4 && (
                   <div className={`flex items-center `}>
-                    {console.log(formik)}
                     {!(formik.dirty && formik.isValid) ? (
                       <span className="text-red-500 font-bold text-center">
                         Please fill in all required fields/inputs to SUBMIT
@@ -148,10 +151,24 @@ const DutchAuctionForm = ({ page, setPage }) => {
 // EXTENDED COMPONETS /////
 const Step4 = ({ formik }) => {
   const formValues = Object.entries(formik.values);
+  const startDate = JSON.parse(JSON.stringify(formValues[16][1]));
+  const endDate = JSON.parse(JSON.stringify(formValues[17][1]));
+
+  const part1 = formValues.slice(0, 16);
+  const part2 = formValues.slice(18, -1);
+
+  const newValues = [
+    ...part1,
+    ...part2,
+    ["startdate", startDate],
+    ["endDate", endDate],
+  ];
+
+  // console.log(formValues);
 
   return (
     <div className="">
-      {formValues.map((value, i) => (
+      {newValues.map((value, i) => (
         <div key={i} className="flex justify-between">
           <span className="capitalize">{value[0]}</span>
           <span className="text-pink">{value[1]}</span>
@@ -488,6 +505,25 @@ const Step2 = ({ formik }) => {
             type={"number"}
             name={"liquidityLockTime"}
             placeholder={"Ex: 20"}
+          />
+        </div>
+      </div>
+
+      {/* Select start time & end time (UTC)* */}
+      <div className="flex flex-col md:flex-row  gap-4">
+        <div className="flex-1">
+          <FormikControl
+            control={"date"}
+            label={"Start time (UTC)"}
+            name={"startDate"}
+          />
+        </div>
+
+        <div className="flex-1">
+          <FormikControl
+            control={"date"}
+            label={"End time (UTC)"}
+            name={"endDate"}
           />
         </div>
       </div>

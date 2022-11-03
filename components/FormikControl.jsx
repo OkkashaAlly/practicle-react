@@ -1,7 +1,5 @@
-import { Input, Textarea, Select, RadioButtons } from "./";
-import DatePicker from "./shared/DatePicker";
+import { Input, Textarea, Select, RadioButtons, DatePicker } from "./";
 
-// console.log(<DatePicker />);
 // ================================
 // FORMIK CONTROL COMPONENT =======
 // ================================
