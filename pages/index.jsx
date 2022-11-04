@@ -15,6 +15,11 @@ const Home = () => {
     if (inputValue !== "") setShowQRCode(true);
   };
 
+  const handleChange = e => {
+    if (inputValue === "") setShowQRCode(false);
+    setInputValue(e.target.value);
+  };
+
   return (
     <div className="flex px-4 justify-center h-screen w-screen items-center bg-neutral-700">
       <form
@@ -29,7 +34,7 @@ const Home = () => {
           className="rounded p-2 border border-blue-500"
           type="text"
           placeholder="Eg: www.example.com"
-          onChange={e => setInputValue(e.target.value)}
+          onChange={handleChange}
         />
         <button type="submit" className="p-3 rounded bg-blue-500 text-white">
           Generate QR Code now
