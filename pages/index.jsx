@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { QRCode } from "react-qrcode-logo";
 
 // =========================
 // HOME PAGE COMPONENT =====
 // =========================
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
-
-  console.log(inputValue);
+  const [showQRCode, setShowQRCode] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (inputValue === "") alert("Please enter a url");
+    if (inputValue !== "") setShowQRCode(true);
   };
 
   return (
@@ -25,7 +28,7 @@ const Home = () => {
         <input
           className="rounded p-2 border border-blue-500"
           type="text"
-          placeholder="Enter a URL"
+          placeholder="Eg: www.example.com"
           onChange={e => setInputValue(e.target.value)}
         />
         <button type="submit" className="p-3 rounded bg-blue-500 text-white">
@@ -33,7 +36,12 @@ const Home = () => {
         </button>
 
         {/* QR Code */}
-        <div className=""></div>
+        {showQRCode && inputValue !== "" && (
+          <div className="flex items-center flex-col">
+            <p>Scan Now</p>
+            <QRCode value={inputValue} size={250} />
+          </div>
+        )}
       </form>
     </div>
   );
