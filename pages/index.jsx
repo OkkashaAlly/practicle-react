@@ -41,12 +41,16 @@ const Home = () => {
         </button>
 
         {/* QR Code */}
-        {showQRCode && inputValue !== "" && (
-          <div className="flex items-center flex-col">
-            <p>Scan Now</p>
-            <QRCode value={inputValue} size={250} />
-          </div>
-        )}
+        <div
+          className={`${
+            showQRCode && inputValue !== ""
+              ? "h-72 opacity-100"
+              : "h-0 opacity-0"
+          } flex items-center duration-300 flex-col`}
+        >
+          <p>Scan Now</p>
+          <QRCode value={inputValue} size={250} />
+        </div>
       </form>
     </div>
   );
