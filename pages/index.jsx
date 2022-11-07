@@ -1,31 +1,26 @@
-import { IconContext } from "react-icons";
-import { RiHomeWifiLine, RiAtFill } from "react-icons/ri";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // =========================
 // HOME PAGE COMPONENT =====
 // =========================
 const Home = () => {
-  const iconsStyle = {
-    color: "blue",
-    size: "5rem",
-  };
+  const notify = () => toast("SImple notification");
 
   return (
-    <IconContext.Provider value={iconsStyle}>
-      <div className="flex flex-col p-4 gap-14 justify-center min-h-screen w-screen items-center">
-        <h1 className="text-4xl font-bold">Practicle React</h1>
+    <div className="flex flex-col p-4 gap-14 justify-center min-h-screen w-screen items-center">
+      <h1 className="text-4xl font-bold">Practicle React</h1>
 
-        <div className="">
-          <p className="font-semibold text-center mb-6">Icons</p>
-          <div className="flex">
-            {/* <RiHomeWifiLine color="#999" size="30px" /> */}
-            {/* <RiHomeWifiLine color="red" size="30rem" /> */}
-            <RiHomeWifiLine color="green" />
-            <RiAtFill />
-          </div>
+      <div className="">
+        <p className="font-semibold text-center mb-6">Notifications</p>
+        <div className="flex justify-center">
+          <button className="bg-blue-500 rounded p-3" onClick={notify}>
+            Nofity
+          </button>
+          <ToastContainer />
         </div>
       </div>
-    </IconContext.Provider>
+    </div>
   );
 };
 // =======================
