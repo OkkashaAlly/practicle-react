@@ -5,7 +5,20 @@ import "react-toastify/dist/ReactToastify.css";
 // HOME PAGE COMPONENT =====
 // =========================
 const Home = () => {
-  const notify = () => toast("SImple notification");
+  const notify = () => {
+    toast.success(<CustomNotification />, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 8000,
+    });
+    toast.info("Info notification", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: false,
+    });
+    toast.warning("Warning notification", {
+      position: toast.POSITION.TOP_LEFT,
+    });
+    toast.error("Error notification", { position: toast.POSITION.TOP_LEFT });
+  };
 
   return (
     <div className="flex flex-col p-4 gap-14 justify-center min-h-screen w-screen items-center">
@@ -17,7 +30,7 @@ const Home = () => {
           <button className="bg-blue-500 rounded p-3" onClick={notify}>
             Nofity
           </button>
-          <ToastContainer />
+          <ToastContainer theme="dark" />
         </div>
       </div>
     </div>
@@ -25,6 +38,7 @@ const Home = () => {
 };
 // =======================
 // EXTENDED COMPONENTS ===
+const CustomNotification = () => <p>Something went wrong</p>;
 
 // EXPORT =========
 export default Home;
