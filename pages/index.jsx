@@ -1,13 +1,17 @@
 import { useState } from "react";
 import Modal from "react-modal";
 
+Modal.setAppElement("#root");
+
 // =========================
 // HOME PAGE COMPONENT =====
 // =========================
 const Home = () => {
   const [ModalIsOpen, setModalIsOpen] = useState(false);
-
-  Modal.setAppElement("#root");
+  const customStyles = {
+    overlay: { backgroundColor: "grey" },
+    content: { border: "3px solid red" },
+  };
 
   return (
     <div
@@ -30,7 +34,7 @@ const Home = () => {
             isOpen={ModalIsOpen}
             onRequestClose={_ => setModalIsOpen(false)}
             contentLabel="Example Modal"
-            style={{ content: { border: "3px solid red" } }}
+            style={customStyles}
           >
             <h1 className="text-3xl">Modal title</h1>
             <p>modal body</p>
