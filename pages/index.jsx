@@ -1,36 +1,46 @@
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import Modal from "react-modal";
 
 // =========================
 // HOME PAGE COMPONENT =====
 // =========================
 const Home = () => {
-  const notify = () => {
-    toast.success(<CustomNotification />, {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 8000,
-    });
-    toast.info("Info notification", {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: false,
-    });
-    toast.warning("Warning notification", {
-      position: toast.POSITION.TOP_LEFT,
-    });
-    toast.error("Error notification", { position: toast.POSITION.TOP_LEFT });
-  };
+  const [ModalIsOpen, setModalIsOpen] = useState(false);
+
+  Modal.setAppElement("#root");
 
   return (
-    <div className="flex flex-col p-4 gap-14 justify-center min-h-screen w-screen items-center">
+    <div
+      id="root"
+      className="flex flex-col p-4 gap-14 justify-center min-h-screen w-screen items-center"
+    >
       <h1 className="text-4xl font-bold">Practicle React</h1>
 
       <div className="">
         <p className="font-semibold text-center mb-6">Notifications</p>
         <div className="flex justify-center">
-          <button className="bg-blue-500 rounded p-3" onClick={notify}>
-            Nofity
+          <button
+            className="bg-blue-500 rounded p-3"
+            onClick={_ => setModalIsOpen(true)}
+          >
+            Open modal
           </button>
-          <ToastContainer theme="dark" />
+
+          <Modal
+            isOpen={ModalIsOpen}
+            onRequestClose={_ => setModalIsOpen(false)}
+            contentLabel="Example Modal"
+            style={{ content: { border: "3px solid red" } }}
+          >
+            <h1 className="text-3xl">Modal title</h1>
+            <p>modal body</p>
+            <button
+              className="bg-blue-500 rounded p-3"
+              onClick={_ => setModalIsOpen(false)}
+            >
+              close
+            </button>
+          </Modal>
         </div>
       </div>
     </div>
