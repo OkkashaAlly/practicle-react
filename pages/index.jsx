@@ -1,4 +1,4 @@
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
 
 // =========================
 // HOME PAGE COMPONENT =====
@@ -13,8 +13,22 @@ const Home = () => {
 
       <div className="">
         <p className="font-semibold text-center mb-6">Count Up</p>
-        <div className="flex justify-center">
-          <h1><CountUp end={1000}/></h1>
+        <div className="">
+          <h1>
+            <CountUp end={1000} />
+          </h1>
+          <h1>
+            <CountUp end={1000} duration={10} />
+          </h1>
+          <h1>
+            <CountUp start={50} end={1000} duration={10} />
+          </h1>
+          <h1>
+            <CountUp prefix="$" decimals={2} start={50} end={1000} />
+          </h1>
+          <h1>
+            <CountUp suffix="USD" decimals={2} start={50} end={1000} />
+          </h1>
         </div>
       </div>
     </div>
