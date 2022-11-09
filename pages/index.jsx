@@ -15,7 +15,21 @@ const Home = () => {
       <div className="">
         <p className="font-semibold text-center mb-6">Tooltip</p>
         <div className="flex justify-center">
-          <Tooltip title="I am the tooltip from react-tippy" >
+          <Tooltip
+            // title="I am the tooltip from react-tippy"
+            html={
+              <span className="text-yellow-500">
+                I am the tooltip from react-tippy
+              </span>
+            }
+            position="bottom"
+            animation="fade"
+            arrow
+            followCursor
+            sticky
+            // theme="light"
+            // className="bg-rose-200 border border-neutral-600"
+          >
             <p className="bg-blue-500 rounded p-3">Hover to see what i have</p>
           </Tooltip>
         </div>
