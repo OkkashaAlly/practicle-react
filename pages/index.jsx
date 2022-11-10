@@ -16,7 +16,12 @@ const Home = () => {
       <div className="text-center">
         <p>React Video player </p>
         <div className="">
-          <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+            controls={true}
+            height={"240px"}
+            width={"480px"}
+          />
         </div>
       </div>
     </div>
