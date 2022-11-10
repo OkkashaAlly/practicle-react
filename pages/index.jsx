@@ -1,16 +1,12 @@
 import { useState } from "react";
-import Cards from "react-credit-cards";
-import "react-credit-cards/es/styles-compiled.css";
+import Datepicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 // =========================
 // HOME PAGE COMPONENT =====
 // =========================
 const Home = () => {
-  const [number, setNumber] = useState("");
-  const [cvc, setCvc] = useState("");
-  const [name, setName] = useState("");
-  const [expiry, setExpiry] = useState("");
-  const [focus, setFocus] = useState("");
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
     <div
@@ -20,49 +16,21 @@ const Home = () => {
       <h1 className="text-4xl font-bold">Practicle React</h1>
 
       <div className="text-center">
-        <p>React credit cards</p>
+        <p>React Datepicker - </p>
+        {/* {console.log(selectedDate?.getDay() + 3)} */}
         <div className="">
-          <Cards
-            number={number}
-            name={name}
-            cvc={cvc}
-            expiry={expiry}
-            focused={focus}
+          <Datepicker
+            selected={selectedDate}
+            onChange={date => setSelectedDate(date)}
+            className="p-3 border border-green-500"
+            dateFormat="dd/MM/yyyy"
+            minDate={new Date()}
+            // maxDate={new Date()}
+            filterDate={date => date.getDay() !== 0 && date.getDay() !== 6} //filter weekends
+            isClearable
+            // showYearDropdown //deprecated
+            // scrollableMonthYearDropdown
           />
-          <form>
-            <Input
-              type={"tel"}
-              name={"number"}
-              placeholder="phone number"
-              value={number}
-              action={e => setNumber(e.target.value)}
-              focus={e => setFocus(e.target.name)}
-            />
-            <Input
-              type={"text"}
-              name={"name"}
-              placeholder="enter name"
-              value={name}
-              action={e => setName(e.target.value)}
-              focus={e => setFocus(e.target.name)}
-            />
-            <Input
-              type={"number"}
-              name={"cvc"}
-              placeholder="enter cvc"
-              value={cvc}
-              action={e => setCvc(e.target.value)}
-              focus={e => setFocus(e.target.name)}
-            />
-            <Input
-              type={"number"}
-              name={"expiry"}
-              placeholder="enter expiry"
-              value={expiry}
-              action={e => setExpiry(e.target.value)}
-              focus={e => setFocus(e.target.name)}
-            />
-          </form>
         </div>
       </div>
     </div>
