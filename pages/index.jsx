@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // HOME PAGE COMPONENT =====
 // =========================
 const Home = () => {
-  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
     <div
@@ -16,12 +16,20 @@ const Home = () => {
       <h1 className="text-4xl font-bold">Practicle React</h1>
 
       <div className="text-center">
-        <p>React Datepicker</p>
+        <p>React Datepicker - </p>
+        {/* {console.log(selectedDate?.getDay() + 3)} */}
         <div className="">
           <Datepicker
             selected={selectedDate}
             onChange={date => setSelectedDate(date)}
             className="p-3 border border-green-500"
+            dateFormat="dd/MM/yyyy"
+            minDate={new Date()}
+            // maxDate={new Date()}
+            filterDate={date => date.getDay() !== 0 && date.getDay() !== 6} //filter weekends
+            isClearable
+            // showYearDropdown //deprecated
+            // scrollableMonthYearDropdown
           />
         </div>
       </div>
