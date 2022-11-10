@@ -1,15 +1,13 @@
-import { useIdleTimer } from "react-idle-timer";
+import { useState } from "react";
+import { SketchPicker } from "react-color";
 
 // =========================
 // HOME PAGE COMPONENT =====
 // =========================
-const Home = () => {
-  const onIdle = () => {
-    console.log("User is  idle");
-  };
 
-  // const { isIdle } = useIdleTimer({ onIdle, timeout: 3000 });
-  useIdleTimer({ onIdle, timeout: 3000 });
+const Home = () => {
+  const [colorSelected, setColorSelected] = useState("#fff");
+  const [showColorPicker, setShowColorPicker] = useState(false);
 
   return (
     <div
@@ -18,9 +16,22 @@ const Home = () => {
     >
       <h1 className="text-4xl font-bold">Practicle React</h1>
 
-      <div className="">
-        <p className="font-semibold text-center mb-6">Idle timer (timeout)</p>
-        {/* <div className="">{isIdle ? "User is idle" : "User is active"}</div> */}
+      <div className="text-center">
+        <p>Color picker - you picked {colorSelected}</p>
+        <div className="">
+          <button
+            onClick={_ => setShowColorPicker(!showColorPicker)}
+            className="bg-blue-500 p-2 rounded"
+          >
+            Pick a color
+          </button>
+        </div>
+        {showColorPicker && (
+          <SketchPicker
+            color={colorSelected}
+            onChange={updatedColor => setColorSelected(updatedColor.hex)}
+          />
+        )}
       </div>
     </div>
   );
