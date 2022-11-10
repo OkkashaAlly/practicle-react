@@ -1,6 +1,4 @@
-// import ReactPlayer from "react-player/youtube";
-import dynamic from "next/dynamic";
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+// import LineChart from "../components/LineChart";
 
 // =========================
 // HOME PAGE COMPONENT =====
@@ -14,14 +12,9 @@ const Home = () => {
       <h1 className="text-4xl font-bold">Practicle React</h1>
 
       <div className="text-center">
-        <p>React Video player </p>
+        <p>React Charts </p>
         <div className="">
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            controls={true}
-            height={"240px"}
-            width={"480px"}
-          />
+          {/* <LineChart /> */}
         </div>
       </div>
     </div>
