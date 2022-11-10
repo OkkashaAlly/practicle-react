@@ -1,13 +1,16 @@
 import { useState } from "react";
-import { SketchPicker } from "react-color";
+import Cards from "react-credit-cards";
+import "react-credit-cards/es/styles-compiled.css";
 
 // =========================
 // HOME PAGE COMPONENT =====
 // =========================
-
 const Home = () => {
-  const [colorSelected, setColorSelected] = useState("#fff");
-  const [showColorPicker, setShowColorPicker] = useState(false);
+  const [number, setNumber] = useState("");
+  const [cvc, setCvc] = useState("");
+  const [name, setName] = useState("");
+  const [expiry, setExpiry] = useState("");
+  const [focus, setFocus] = useState("");
 
   return (
     <div
@@ -17,28 +20,67 @@ const Home = () => {
       <h1 className="text-4xl font-bold">Practicle React</h1>
 
       <div className="text-center">
-        <p>Color picker - you picked {colorSelected}</p>
+        <p>React credit cards</p>
         <div className="">
-          <button
-            onClick={_ => setShowColorPicker(!showColorPicker)}
-            className="bg-blue-500 p-2 rounded"
-          >
-            Pick a color
-          </button>
-        </div>
-        {showColorPicker && (
-          <SketchPicker
-            color={colorSelected}
-            onChange={updatedColor => setColorSelected(updatedColor.hex)}
+          <Cards
+            number={number}
+            name={name}
+            cvc={cvc}
+            expiry={expiry}
+            focused={focus}
           />
-        )}
+          <form>
+            <Input
+              type={"tel"}
+              name={"number"}
+              placeholder="phone number"
+              value={number}
+              action={e => setNumber(e.target.value)}
+              focus={e => setFocus(e.target.name)}
+            />
+            <Input
+              type={"text"}
+              name={"name"}
+              placeholder="enter name"
+              value={name}
+              action={e => setName(e.target.value)}
+              focus={e => setFocus(e.target.name)}
+            />
+            <Input
+              type={"number"}
+              name={"cvc"}
+              placeholder="enter cvc"
+              value={cvc}
+              action={e => setCvc(e.target.value)}
+              focus={e => setFocus(e.target.name)}
+            />
+            <Input
+              type={"number"}
+              name={"expiry"}
+              placeholder="enter expiry"
+              value={expiry}
+              action={e => setExpiry(e.target.value)}
+              focus={e => setFocus(e.target.name)}
+            />
+          </form>
+        </div>
       </div>
     </div>
   );
 };
 // =======================
 // EXTENDED COMPONENTS ===
-const CustomNotification = () => <p>Something went wrong</p>;
+const Input = ({ type, name, placeholder, value, action, focus }) => (
+  <input
+    type={type}
+    name={name}
+    placeholder={placeholder}
+    value={value}
+    onChange={action}
+    onFocus={focus}
+    className="p-3 border border-green-500"
+  />
+);
 
 // EXPORT =========
 export default Home;
